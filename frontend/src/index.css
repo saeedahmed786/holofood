@@ -282,6 +282,13 @@ body a {
   
 }
 
+@media only screen and (max-width: 992px) {
+  .navbar ul li {
+    padding-left: 0px;
+  }
+  
+}
+
 @media only screen and (max-width: 520px) {
   .cart-totals {
     padding-left: 0px !important;

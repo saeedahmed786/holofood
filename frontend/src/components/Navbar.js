@@ -100,7 +100,7 @@ import logo  from '../images/logo.png';
                                         props.history.push('/signin');
                                     })
                                     
-                              }}> <i className="fas fa-sign-in-alt"><br/>Logout</i></Link>
+                              }}> <i className="fas fa-sign-in-alt"></i><br/>Logout</Link>
                             </li>
 
                         )
