@@ -32,7 +32,7 @@ import { DetailsProducts } from '../Redux/store';
         
            <div className = 'row'>
            <div className = 'col-md-6 col-lg-6'>
-           <img src = {'http://localhost:5000/' + product.image} alt = {product.name} style = {{ width: '100%', height: '500px'}}></img>
+           <img src = {'https://holofood.herokuapp.com/' + product.image} alt = {product.name} style = {{ width: '100%', height: '500px'}}></img>
 
                 </div>
 
@@ -65,7 +65,7 @@ import { DetailsProducts } from '../Redux/store';
 
                    <div className = 'col-md-12 col-lg-12 text-center mt-5'>
                        <h3 className = 'pb-5'>Description</h3>
-                       <img src = {'http://localhost:5000/' + product.image} alt = {product.name} className = 'w-75 zoom'></img>
+                       <img src = {'https://holofood.herokuapp.com/' + product.image} alt = {product.name} className = 'w-75 zoom'></img>
                    </div>
 
                    <div className = 'col-md-12 col-lg-12 justify-text-center px-5'>

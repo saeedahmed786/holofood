@@ -261,23 +261,27 @@ body a {
     width: 50% !important;
   }
    form input {
-     width: 110%;
+     width: 100%;
    }
    .placeorder {
      width: 100%;
+   }
+   .checkout-steps > div {
+     padding-left: 10px;
    }
  
 }
 
 @media only screen and (max-width: 574px) {
   form input {
-    max-width: 50vh;
+    justify-content: center;
+    /* max-width: 50vh; */
   }
   
 }
 @media only screen and (max-width: 385px) {
   form input {
-    max-width: 30vh;
+    /* max-width: 30vh; */
   }
   
 }
@@ -298,7 +302,7 @@ body a {
     width: 50% !important;
   }
    form input {
-     width: 120%;
+     width: 100%;
    }
    
  
