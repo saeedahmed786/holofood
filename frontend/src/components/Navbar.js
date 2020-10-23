@@ -93,8 +93,8 @@ import logo  from '../images/logo.png';
                     {
                         isAuthenticated() && (
                             
-                            <li className="nav-item pt-2" style = {{}}>
-                               <Link className=" logout"  onClick = {
+                            <li className="nav-item pl-lg-3">
+                               <Link className=" logout" style = {{textDecoration: 'none'}}  onClick = {
                                     (e) => {
                                         logout(() => {
                                         props.history.push('/signin');
