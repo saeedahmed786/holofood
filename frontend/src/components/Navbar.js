@@ -24,23 +24,23 @@ import logo  from '../images/logo.png';
                     </li>
                    
 
-                    <li className="nav-item pl-3">
+                    <li className="nav-item">
                         <Link className=" nav-link" to = '/categoriesproducts'>
                         <i class="fas fa-store-alt"></i><br/>Categories
                         </Link>
                         
                         </li>
 
-                        <li className="nav-item pl-3">
+                        <li className="nav-item">
                         <Link className="nav-link" to="/cart/:id"><i class="fas fa-shopping-cart"></i><br/>Cart</Link>
                     </li>
                    
                  
                     
-                    <li className="nav-item pl-3">
+                    <li className="nav-item">
                         <Link className="nav-link" to="#"><i class="fas fa-address-card"></i><br/>About</Link>
                     </li>
-                    <li className="nav-item pl-3">
+                    <li className="nav-item">
                         <Link className="nav-link" to="#"><i class="fas fa-phone"></i><br/>Contact</Link>
                     </li>
                     
@@ -51,7 +51,7 @@ import logo  from '../images/logo.png';
                         isAuthenticated() && isAuthenticated().role === 1 && (
                             <>
                        
-                    <li className="nav-item pl-3">
+                    <li className="nav-item">
                         <Link className="nav-link" to="/products"><i class="fas fa-user-shield"></i><br/>Admin Panel</Link>
                     </li>
                     
@@ -64,8 +64,8 @@ import logo  from '../images/logo.png';
 
                     {
                         !isAuthenticated() && (
-                            <li className="nav-item pl-3">
-                             <Link className="nav-link ml-3" style = {{color: 'lightgrey'}} to="/signin"><i className="fas fa-sign-in-alt"></i><br/>Login
+                            <li className="nav-item">
+                             <Link className="nav-link" style = {{color: 'lightgrey'}} to="/signin"><i className="fas fa-sign-in-alt"></i><br/>Login
                              </Link>
                       
                        
@@ -94,7 +94,7 @@ import logo  from '../images/logo.png';
                         isAuthenticated() && (
                             
                             <li className="nav-item pt-2" style = {{}}>
-                               <Link className=" ml-3 logout"  onClick = {
+                               <Link className=" logout"  onClick = {
                                     (e) => {
                                         logout(() => {
                                         props.history.push('/signin');

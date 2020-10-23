@@ -55,6 +55,9 @@ nav a:hover {
 nav ul a {
   color: lightgrey;
 }
+.navbar ul li {
+  padding-left: 6px;
+}
 
  
 

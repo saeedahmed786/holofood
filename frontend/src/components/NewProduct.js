@@ -150,13 +150,12 @@ import CreateDeals from './createDeals';
           createCategory(data)
           .then(response => {
               setLoadings(false);
-              setSuccessMsg(response.data.successMessage);
               setCategory('');
              
           }).catch( err => {
               setErrorMsg(err.response.data.err);
               setLoadings(false);
-          })
+          });
 
       }
   }
