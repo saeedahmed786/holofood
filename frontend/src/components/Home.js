@@ -65,7 +65,7 @@ import Deals from './getDeals';
                  <>
              <div className = 'containers col-md-6 col-lg-4 col-xl-3 col-sm-6 py-5' key = {product._id}>
                 <div className = 'card' style = {{height: '90%', width: '90%'}}>
-                <img src={'http://holofood.herokuapp.com/' + product.image} alt="Avatar" className="image"/>
+                <img src={'http://localhost:5000/' + product.image} alt="Avatar" className="image"/>
                 <div className = 'card-body'>
                             <h3>{product.name}</h3>
                             <p>Price: ${product.price}</p>
