@@ -1,6 +1,6 @@
 const express = require('express');
 const Product = require('./productModel');
-const {authenticatorJWT} = require('./authenticator');
+const authenticatorJWT = require('./authenticator');
 const Category = require('./categoryModel');
 const upload = require('./multer');
 const Deal = require('./dealsModel');
