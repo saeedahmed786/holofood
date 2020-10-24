@@ -117,7 +117,7 @@ router.get('/categories/filter/:id', async (req, res) => {
    
 
 
-router.post('/deals', authenticatorJWT , upload.single('file') ,async (req, res) => {
+router.post('/deals',  upload.single('file') ,async (req, res) => {
 
     const deal = new Deal({
         name: req.body.name,
