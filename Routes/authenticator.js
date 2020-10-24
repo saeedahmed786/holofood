@@ -14,7 +14,7 @@ authenticatorJWT = (req, res, next) => {
         req.user = decoded.user;
         next();
     } catch (err) {
-        console.log('jwt error in cateogory', err);
+        console.log('jwt error', err);
         res.status(401).json({
             err: 'invalid token'
         });
