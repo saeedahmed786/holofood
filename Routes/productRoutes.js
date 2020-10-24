@@ -200,7 +200,7 @@ router.get('/:id', async (req, res) => {
 
 
 
-router.post('/', authenticatorJWT ,upload.single('file') ,async (req, res) => {
+router.post('/' ,upload.single('file') ,async (req, res) => {
 
     const product = new Product({
         name: req.body.name,
