@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 const path  = require('path');
 const mongoose = require('mongoose');
-const UserRoutes = require('./Routes/UserRoutes');
+const UserRoutes = require('./UserRoutes');
 // const bodyParser = require('body-parser');
-const productRoutes = require('./Routes/productRoutes');
+const productRoutes = require('./productRoutes');
 const morgan = require('morgan');
 const cors = require('cors');
-const config = require('./config/keys');
+const config = require('../config/keys');
 const cookieParser = require('cookie-parser');
 
 
