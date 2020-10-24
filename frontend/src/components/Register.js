@@ -7,7 +7,7 @@ import '../index.css';
 import { showErrormsg, showLoadingMsg, showSuccessmsg } from './messages';
 import Axios from 'axios';
 
-export default function Register(props) {
+export default function Register() {
 
     const [formData, setFormData] = useState({
         name: '',
