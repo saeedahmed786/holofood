@@ -158,8 +158,10 @@ import { showErrormsg, showLoadingMsg } from './messages';
                     <i className = 'fas fa-times'></i>
                 </button>
                 </div>
+                <div className = 'text-center'>
                 {loadings && showLoadingMsg(loadings)}
                 {errorMsg && showErrormsg(errorMsg)}
+                </div>
                  <div className = 'modal-body text-center mt-3'> 
                     <div className="form-group">
                     <label for="image">Image</label><br/>

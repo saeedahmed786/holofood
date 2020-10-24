@@ -36,7 +36,7 @@ import Axios from 'axios';
         
            <div className = 'row'>
            <div className = 'col-md-6 col-lg-6 pl-2'>
-           <img src = {'http://localhost:5000/' + deal.image} alt = {deal.name} style = {{ width: '100%', height: '500px'}}></img>
+           <img src = {'https://holofood.herokuapp.com/' + deal.image} alt = {deal.name} style = {{ width: '100%', height: '500px'}}></img>
 
                 </div>
 

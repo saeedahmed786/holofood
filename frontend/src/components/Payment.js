@@ -39,7 +39,7 @@ import CheckoutSteps from './CheckoutSteps';
                   
                     
                     
-                    <input type = 'radio' className = 'w-25 pl-sm-3' id = 'paymentMethod' value = 'Paypal' name ='paymentMethod' required onChange = { (e) => setPaymentMethod(e.target.value)}></input><br/><br/>
+                    <input type = 'radio' className = '' id = 'paymentMethod' value = 'Paypal' name ='paymentMethod' required onChange = { (e) => setPaymentMethod(e.target.value)}></input><br/><br/>
                     <label htmlFor = 'paymentMethod' className = 'font-weight-bolder h1'>Paypal</label> <br/>
                     
                     <div>

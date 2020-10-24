@@ -159,7 +159,7 @@ router.get('/deal/:id', async (req, res) => {
    
 });
 
-router.delete('/deals/:id', authenticatorJWT, async (req, res) => {
+router.delete('/deals/:id', async (req, res) => {
     console.log(req.params.id);
     const deal = await Deal.findById({_id: req.params.id});
     if(deal) {
@@ -221,7 +221,7 @@ router.post('/' ,upload.single('file') ,async (req, res) => {
 
 
 
-router.put('/:id', authenticatorJWT,upload.single('file') ,  async (req, res) => {
+router.put('/:id', upload.single('file') ,  async (req, res) => {
     const productId = req.params.id;
     const product = await Product.findById( productId);
     if(product) {
