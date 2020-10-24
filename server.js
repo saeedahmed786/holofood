@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 const path  = require('path');
 const mongoose = require('mongoose');
-const UserRoutes = require('./UserRoutes');
+const UserRoutes = require('./Routes/UserRoutes');
 // const bodyParser = require('body-parser');
-const productRoutes = require('./productRoutes');
+const productRoutes = require('./Routes/productRoutes');
 const morgan = require('morgan');
 const cors = require('cors');
-const config = require('../config/keys');
+const config = require('./config/keys');
 const cookieParser = require('cookie-parser');
 
 
@@ -39,10 +39,10 @@ app.use('/api/products', productRoutes);
 
 
 if(process.env.NODE_ENV === 'production') {
-    app.use(express.static('.././frontend/build'));
+    app.use(express.static('./frontend/build'));
 
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname , '.././frontend', 'build', 'index.html'));
+        res.sendFile(path.resolve(__dirname , './frontend', 'build', 'index.html'));
 
     });
 }

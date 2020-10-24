@@ -60,7 +60,7 @@ router.get('/categories',   async (req, res) => {
    
 });
 
-router.delete('/categories/:id', authenticatorJWT,  async (req, res) => {
+router.delete('/categories/:id',  async (req, res) => {
     try {
      console.log(req.params.id);
        
