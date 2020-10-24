@@ -2,21 +2,21 @@ import { deleteCookie, getCookie, setCookie } from "./cookies";
 import { deleteLocalStorage, getLocalStorage, setLocalStorage } from "./localStorage";
 
 export const setAuthentication = (token, user) => {
-    setCookie('user', user);
-    setLocalStorage('token', token);
+    setCookie('token', token);
+    setLocalStorage('user', user);
 };
 
 export const isAuthenticated = () => {
-    if(getCookie('user') && getLocalStorage('token')) {
-        return getCookie('user');
+    if(getCookie('token') && getLocalStorage('user')) {
+        return getLocalStorage('user');
     }  else {
         return false;
     }
 }
 
 export const logout = (next) => {
-    deleteCookie('user');
-    deleteLocalStorage('token');
+    deleteCookie('token');
+    deleteLocalStorage('user');
 
     next();
 
