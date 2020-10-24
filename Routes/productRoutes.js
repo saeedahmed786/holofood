@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
       * *********************************vv******************************************************************/
    
 
-router.post('/categories', async (req, res) => {
+router.post('/categories', authenticatorJWT, async (req, res) => {
     const { category } = req.body;
     try {
         const categoryExists = await Category.findOne({ category });
@@ -42,7 +42,7 @@ router.post('/categories', async (req, res) => {
    
 });
 
-router.get('/categories',  async (req, res) => {
+router.get('/categories',   async (req, res) => {
 
     try {
        
