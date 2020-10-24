@@ -270,6 +270,10 @@ body a {
    .checkout-steps > div {
      padding-left: 10px;
    }
+   .pay {
+     
+     padding-left: 100px;
+   }
  
 }
 

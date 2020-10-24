@@ -362,11 +362,10 @@ import CreateDeals from './createDeals';
            <button type = 'button' className = 'btn' style = {{background: 'radial-gradient( circle at top right, #16222A, #3A6073)', color: 'lightgray'}} data-toggle = 'modal' data-target = '#addProductModal'>Create a Product</button>
            </div>
 
-            
+           <div className="table-responsive">
                     <table className="table">
                             <thead>
                                 <tr>
-                                <th scope="col">ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Category</th>
@@ -379,7 +378,6 @@ import CreateDeals from './createDeals';
                                 products.map( product => {
                                     return (
                                         <tr key = {product.id}>
-                                <th scope="col">{product._id}</th>
                                 <th scope="col">{product.name}</th>
                                 <th scope="col">{product.price}</th>
                                 <th scope="col">{product.category}</th>
@@ -395,6 +393,7 @@ import CreateDeals from './createDeals';
                                
                             </tbody>
                             </table>
+                            </div>
         </div>
 
         
