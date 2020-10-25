@@ -88,7 +88,7 @@ import { showErrormsg } from './messages';
                 <>
                 <div className = 'containers col-md-6 col-lg-4 col-sm-12 py-5 pl-3' key = {product._id}>
                 <div className = 'card h-100' style = {{width: '85%'}}>
-                <img src={'http://localhost:5000/' + product.image} alt="Avatar" className="image"/>
+                <img src={'https://holofood.herokuapp.com/' + product.image} alt="Avatar" className="image"/>
                 <div className = 'card-body'>
                             <h3>{product.name}</h3>
                             <p>Price: ${product.price}</p>
