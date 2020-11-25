@@ -120,6 +120,8 @@ import CreateDeals from './createDeals';
     const config = {
         headers: {
             "Content-Type": "application/json"
+           
+
         }
     }
     

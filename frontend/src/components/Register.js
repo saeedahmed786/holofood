@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import '../index.css';
 import { showErrormsg, showLoadingMsg, showSuccessmsg } from './messages';
 import Axios from 'axios';
+import { motion } from 'framer-motion';
 
 export default function Register() {
 
@@ -111,12 +112,30 @@ export default function Register() {
       
        
     };
+
+    const framervariant =  {
+        hidden : {
+          opacity: 0,
+          x: -100
+ 
+        },
+        visible : {
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 1
+             
+           }
+        },
+ 
+      }
+
    
     const signUpForm = () => {
         return (
             <>
     
- <div className="container-fluid">
+ <motion.div  variants = {framervariant} initial = "hidden" animate= "visible" className="container-fluid">
     <div className="row no-gutter">
         <div className="col-md-6 d-none d-md-flex bg-image"></div>
 
@@ -164,7 +183,7 @@ export default function Register() {
         </div>
 
     </div>
-</div>
+</motion.div>
         </>
         )
     }

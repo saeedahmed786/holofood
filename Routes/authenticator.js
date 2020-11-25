@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { jwtSecret } = require('../config/prod');
+const { jwtSecret } = require('../config/keys');
 
 authenticatorJWT = (req, res, next) => {
     const token = req.cookies.token;
@@ -21,4 +21,7 @@ authenticatorJWT = (req, res, next) => {
         
     }
 }
-module.exports = authenticatorJWT;
+
+
+
+module.exports = {authenticatorJWT};

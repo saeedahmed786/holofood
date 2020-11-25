@@ -5,6 +5,7 @@ import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'validator/lib/isEmpty';
 import Axios from 'axios';
 import { setAuthentication } from './auth';
+import { motion } from 'framer-motion';
 
 export default function Signin(props) {
       
@@ -27,19 +28,18 @@ export default function Signin(props) {
     } = formData;
 
     const login = async (data) => {
-        const config = {
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }
-         
-        const response = await Axios.post('/api/users/signin', data, config);
+        const response = await Axios.post('/api/users/signin', data, {headers: {
+            "Content-Type": "application/json"
+            
+        }});
         return response;
     }
 
     const redirect = props.location.search? props.location.search.split('=')[1]: '/';
-   
 
+
+   
+     
 
     
 
@@ -102,6 +102,23 @@ export default function Signin(props) {
 
 
     }
+     
+    const framervariant =  {
+        hidden : {
+          opacity: 0,
+          x: -100
+ 
+        },
+        visible : {
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 1
+             
+           }
+        },
+ 
+      }
 
     const signinForm = () => {
 
@@ -110,7 +127,7 @@ export default function Signin(props) {
          
            
 
-    <div className="container-fluid">
+    <motion.div variants = {framervariant} initial = "hidden" animate= "visible" className="container-fluid">
     <div className="row no-gutter">
         <div className="col-md-6 d-none d-md-flex bg-image"></div>
 
@@ -148,7 +165,7 @@ export default function Signin(props) {
         </div>
 
     </div>
-</div>
+</motion.div>
 </>
 
            

@@ -2,6 +2,7 @@ import React, { useEffect, useState} from 'react';
 import '../index.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { DetailsProducts } from '../Redux/store';
+import { motion } from 'framer-motion';
 
   const Product = (props) => {
 
@@ -20,6 +21,23 @@ import { DetailsProducts } from '../Redux/store';
      const handleAddToCart = () => {
        props.history.push('/cart/' + props.match.params.id + '?qty=' + qty)
      }
+     const framervariant =  {
+       hidden : {
+         opacity: 0,
+         x: '100vw'
+
+       },
+       visible : {
+         opacity: 1,
+         x: 0,
+         transition: {
+           type: 'spring',
+           duration: 2
+            
+          }
+       }
+
+     }
   
          
    
@@ -27,7 +45,7 @@ import { DetailsProducts } from '../Redux/store';
           
            loading? <div>loading...</div>: error? <div>{error}</div>:
          
-           <div className = 'pl-3 mt-5'>
+           <motion.div variants = {framervariant} initial = "hidden" animate= "visible" className = 'pl-3 mt-5'>
 
         
            <div className = 'row'>
@@ -79,7 +97,7 @@ import { DetailsProducts } from '../Redux/store';
 
             
             
-        </div>
+        </motion.div>
            
             
           

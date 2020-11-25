@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import isEmpty from 'validator/lib/isEmpty';
@@ -30,11 +31,31 @@ export default function Shipping(props) {
         props.history.push('/payment')
     }
     }
+
+
+    const framervariant =  {
+        hidden : {
+          opacity: 0,
+          x: '100vw'
+ 
+        },
+        visible : {
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 2,
+            type: 'spring'
+             
+           }
+        },
+ 
+      }
+
      return (
          <>
        
 
-         <div style = {{width: '100%', backgroundColor: 'whitesmoke'}}>
+         <motion.div variants = {framervariant} initial = "hidden" animate= "visible" style = {{width: '100%', backgroundColor: 'whitesmoke'}} >
          <CheckoutSteps step1 step2 ></CheckoutSteps>
         <div className = 'container-fluid'> 
         <div className = ' text-center'>
@@ -90,7 +111,7 @@ export default function Shipping(props) {
         </div>
         </div>
         </div>
-        </div>
+        </motion.div>
         </>
     )
 }

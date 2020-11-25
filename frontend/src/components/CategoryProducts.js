@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { showErrormsg } from './messages';
+import { motion } from 'framer-motion';
 
 
  const CategoryProducts = (props) =>  {
@@ -47,17 +48,36 @@ import { showErrormsg } from './messages';
             return response;
         }
 
+        const framervariant =  {
+            hidden : {
+              opacity: 0,
+              x: '100vw'
+     
+            },
+            visible : {
+              opacity: 1,
+              x: 0,
+              transition: {
+                duration: 2,
+                type: 'spring'
+                 
+               }
+            },
+     
+          }
+    
+
     
       
  
  
     return (
         <>
-        <div className = 'container-fluid'>
+        <motion.div variants = {framervariant} initial = "hidden" animate= "visible" className = 'container-fluid'>
         <div className = 'row'>
             <div className = 'col-md-3 col-lg-3 border' style = {{background: 'radial-gradient( circle at top right, #16222A, #3A6073)', borderRadius: '0',
-  boxShadow:' none',
-  border: 'none'}}>
+            boxShadow:' none',
+            border: 'none'}}>
 
            
       
@@ -95,8 +115,8 @@ import { showErrormsg } from './messages';
                             <p>{product.rating} Stars</p>
                             </div>
                 <div className="overlay">
-                    <div className="text">
-                    <Link to = {'/product/' + product._id} className = 'btn btn-outline-info text-white active'>Order Now</Link>
+                    <div className="text-center mb-4">
+                    <Link to = {'/product/' + product._id} className = 'btn btn-outline-info'>Order Now</Link>
 
                     </div>
                 </div>
@@ -111,7 +131,7 @@ import { showErrormsg } from './messages';
          </div>
         </div>
         </div>
-        </div>
+        </motion.div>
 
         
        

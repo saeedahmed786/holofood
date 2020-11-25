@@ -3,6 +3,7 @@ const Product = require('./productModel');
 const Category = require('./categoryModel');
 const upload = require('./multer');
 const Deal = require('./dealsModel');
+const { authenticatorJWT } = require('./authenticator');
 const router = express.Router();
 
 
@@ -17,7 +18,7 @@ router.get('/', async (req, res) => {
       * *********************************vv******************************************************************/
    
 
-router.post('/categories',  async (req, res) => {
+router.post('/categories', authenticatorJWT,   async (req, res) => {
     const { category } = req.body;
     try {
         const categoryExists = await Category.findOne({ category });

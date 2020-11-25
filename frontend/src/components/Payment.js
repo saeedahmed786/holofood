@@ -3,6 +3,7 @@ import '../index.css';
 import { useDispatch } from 'react-redux';
 import { savePayment } from '../Redux/store';
 import CheckoutSteps from './CheckoutSteps';
+import { motion } from 'framer-motion';
 
   const Payment = (props) => {
     const [paymentMethod, setPaymentMethod] = useState('');
@@ -22,6 +23,24 @@ import CheckoutSteps from './CheckoutSteps';
      }
 
 
+     const framervariant =  {
+      hidden : {
+        opacity: 0,
+        x: '100vw'
+
+      },
+      visible : {
+        opacity: 1,
+        x: 0,
+        transition: {
+          duration: 2,
+          type: 'spring'
+           
+         }
+      },
+
+    }
+
      
    
   
@@ -32,7 +51,7 @@ import CheckoutSteps from './CheckoutSteps';
              
              <div> <CheckoutSteps step1 step2 step3 ></CheckoutSteps>
 
-             <div className = 'container text-center signin-form pt-4 pb-4'>
+             <motion.div variants = {framervariant} initial = "hidden" animate= "visible" className = 'container text-center signin-form pt-4 pb-4'>
                 <form onSubmit = {submitHandler}>
                 
                     <h2 className = 'font-weight-bolder pb-2'>Payments</h2><br/>
@@ -52,7 +71,7 @@ import CheckoutSteps from './CheckoutSteps';
                    
 
                 </form>
-            </div>
+            </motion.div>
 
              
              </div>

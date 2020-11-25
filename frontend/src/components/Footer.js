@@ -1,12 +1,17 @@
 import React from 'react';
 import {Link}from 'react-router-dom';
 import '../index.css';
+import { motion } from 'framer-motion';
+
 
 export default function Footer() {
     return (
+        <>
+       
         <div className = 'footer mt-5 text-white'>
            <div className = 'row pt-5 px-5 mb-4'>
                <div className = 'col-md-3 col-lg-3'>
+             
                    <h3 className = 'text-light'>Help and Information</h3> 
                    <div style = {{width: '130px', borderTop: '2px solid white'}}><br/>
                    <Link to = '/' style = {{textDecoration: 'none'}}>Help Center</Link> <br/><br/>
@@ -61,5 +66,6 @@ export default function Footer() {
            </div>
             
         </div>
+        </>
     )
 }

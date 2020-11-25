@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import CheckoutSteps from './CheckoutSteps';
+import { motion } from 'framer-motion';
 
 export default function PlaceOrder (props) {
    
@@ -40,12 +41,30 @@ export default function PlaceOrder (props) {
         }
     }, [])
 
+    const framervariant =  {
+        hidden : {
+          opacity: 0,
+          x: '100vw'
+ 
+        },
+        visible : {
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 2,
+            type: 'spring'
+             
+           }
+        },
+ 
+      }
+
    
 
 
   
             return  (
-                    <div>
+                    <motion.div variants = {framervariant} initial = "hidden" animate= "visible">
                     <div className = ' container'>
                     <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
                    <div className = 'row'>
@@ -158,7 +177,7 @@ export default function PlaceOrder (props) {
                     
                 </div>
                 </div>
-               </div>
+               </motion.div>
             )
                
             

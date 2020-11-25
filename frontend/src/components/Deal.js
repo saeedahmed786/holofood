@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import '../index.css';
 import Axios from 'axios';
+import { motion } from 'framer-motion';
 
   const Deal = (props) => {
      const dealId = props.match.params.id
@@ -83,7 +84,8 @@ import Axios from 'axios';
             
             
         </div>
-        </>
+        
+     </>
            
             
           

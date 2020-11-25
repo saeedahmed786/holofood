@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken');
 const {signinRequestValidation} = require('./validation');
 const  {registerValidation} = require('./validation');
 const  {isRequestValidated} = require('./validation');
-const {jwtSecret} = require('../config/prod');
-const {jwtExpire} = require('../config/prod');
+const {jwtSecret} = require('../config/keys');
+const {jwtExpire} = require('../config/keys');
 const router = express.Router();
 
 

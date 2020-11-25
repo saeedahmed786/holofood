@@ -3,6 +3,7 @@ import '../index.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { AddToCart, dealAddToCart,  removeFromCart } from '../Redux/store';
 import { isAuthenticated } from './auth';
+import { motion } from 'framer-motion';
 
 export default function Cart(props) {
 
@@ -36,9 +37,27 @@ export default function Cart(props) {
     }
     }
 
+    const framervariant =  {
+        hidden : {
+          opacity: 0,
+          x: '100vw'
+ 
+        },
+        visible : {
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 2,
+            type: 'spring'
+             
+           }
+        },
+ 
+      }
+
     
     return (
-        <div>
+        <motion.div variants = {framervariant} initial = "hidden" animate= "visible">
         <div>
            <h2 className = 'text-center my-5'> Cart</h2>
            </div>
@@ -98,6 +117,6 @@ export default function Cart(props) {
 
 
             
-        </div>
+        </motion.div>
     )
 }
