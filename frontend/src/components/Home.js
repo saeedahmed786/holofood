@@ -8,6 +8,7 @@ import iphone from '../images/iphone.jpg';
 import slide0 from '../images/header-image.jpg'
 import Deals from './getDeals';
 import { motion, AnimatePresence } from "framer-motion";
+import Cookie  from 'js-cookie';
 
  const Slideshow = () => (
     <motion.div
@@ -30,6 +31,8 @@ import { motion, AnimatePresence } from "framer-motion";
             
         }
     }, [])
+
+   
     
 
   

@@ -53,12 +53,30 @@ export default function Deals() {
 										<p className="card-text">{
 											deal.description
 										} </p>
-										<span className="font-lead-base font-weight-bold text-muted">{deal.off}% Off</span>
+
+										{
+											deal.off !== 0 ?  
+											
+
+
+											<div>
+											<span className="font-lead-base font-weight-bold text-muted">{deal.off}% Off</span>
 										<div className="promotion-promo">$ {deal.priceBefore}</div>
 										<div className="promotion-price">
 											<div className="promotion-price-desc">Now</div>
-											<div className="promotion-price-text">${deal.price}</div>                                    
-										</div>
+											<div className="promotion-price-text">${deal.price}</div> 
+											</div>
+											</div> :
+											<div style = {{ backgroundColor: '#3A6073', color: 'whitesmoke',position: "relative", top: '60px', left: '171px', border: '2px solid black'}}>
+											<div className="promotion-price-desc font-weight-bolder">Price</div>
+											<div className="promotion-price-text">${deal.price}</div> 
+										
+											</div>
+											
+											
+											 
+											
+											}  
 									</div>
 									<div className="card-footer"><Link to = {'/deals/' + deal._id } className="btn text-white" style = {{backgroundColor: ' #3A6073' }}>Order</Link></div>
 								</div>

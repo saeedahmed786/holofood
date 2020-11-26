@@ -1,9 +1,11 @@
 import Axios from 'axios';
+import cookie  from 'js-cookie';
 import React, { useEffect, useState } from 'react'
 import { showErrormsg, showSuccessmsg } from './messages';
 
 export default function EditProduct(props) {
     const productId = props.match.params.id;
+    const [token, setToken] = useState('');
     const [categories, setCategories] = useState(null);
     const [successMsg, setSuccessMsg] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
@@ -31,6 +33,7 @@ export default function EditProduct(props) {
     useEffect(() => {
         loadCategories();
         getProduct();
+        getToken();
            
       
         return () => {
@@ -61,7 +64,9 @@ export default function EditProduct(props) {
     }
 
     const updateProduct = (sendData) => {
-        const response = Axios.put(`/api/products/${productId}`, sendData);
+    const response = Axios.put(`/api/products/${productId}`, sendData, {headers : {
+        'Authorization' : token
+    }})
         return response;
     }
 
@@ -87,6 +92,14 @@ export default function EditProduct(props) {
 
        
     }
+
+                        /* ****************************
+            *********************** Token**************************
+            ******************************************************************/
+
+            const getToken = () => {
+                setToken(cookie.get('token'))
+            }
     
     /********************************************* Load Categories ***********************************************
       * ****************************************************************************************

@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import  cookie from 'js-cookie';
 import React, { useEffect, useState } from 'react'
 import isEmpty from 'validator/lib/isEmpty';
 import { showErrormsg, showLoadingMsg } from './messages';
@@ -10,7 +11,9 @@ import { showErrormsg, showLoadingMsg } from './messages';
       * ****************************************************************************************
       * *********************************vv******************************************************************/
        const createDeal = async (data) => {
-           const response = await Axios.post('/api/products/deals', data);
+           const response = await Axios.post('/api/products/deals', data, {headers : {
+               'Authorization': token
+           }});
            return response;
        }
 
@@ -18,6 +21,7 @@ import { showErrormsg, showLoadingMsg } from './messages';
 
     const [deals, setDeals] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
+    const [token, setToken] = useState('');
     const [loadings, setLoadings] = useState('');
     const [productData, setProductData] = useState({
         name: '',
@@ -35,6 +39,7 @@ import { showErrormsg, showLoadingMsg } from './messages';
 
     useEffect(() => {
         getDeals();
+        getToken();
         return () => {
             
         }
@@ -110,12 +115,18 @@ import { showErrormsg, showLoadingMsg } from './messages';
     }
 
     const deleteDealHandler = async (delId) => {
-        const response = await Axios.delete('/api/products/deals/' + delId);
+        const response = await Axios.delete('/api/products/deals/' + delId, { headers : {
+            'Authorization' :  token
+        }});
         window.location.reload();
         return response;
         
  
      }
+     
+     const getToken = () => {
+        setToken(cookie.get('token'))
+    }
  
 
 

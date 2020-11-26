@@ -2,12 +2,19 @@
  import thunkMiddleWare from 'redux-thunk';
  import axios from 'axios';
  import Cookie from 'js-cookie';
+import { useState } from 'react';
 
 
  const cartItems = Cookie.getJSON('cartItems') || [];
   const initialState = {
       cart: {cartItems},
- };
+ };                                
+
+//  const getToken = () => {
+//      setToken(Cookie.get('token'))
+//  }
+
+ 
 
 
  //Constants Of Actins and Reducers
@@ -232,12 +239,14 @@ export const catProducts = (categoryId) => async (dispatch) => {
 
 
 
-export const deleteProduct = (productId) => async (dispatch) => {
+export const deleteProduct = (productId, token) => async (dispatch) => {
     try {
        
         dispatch({ type: PRODUCTS_DELETE_REQUEST, payload: productId});
 
-        const { data } = await axios.delete('/api/products/' + productId);
+        const { data } = await axios.delete('/api/products/' + productId, {headers : {
+            'Authorization' : token
+        }});
         dispatch({type: PRODUCTS_DELETE_SUCCESS, payload: data});
         
     } catch (error) {
@@ -246,12 +255,14 @@ export const deleteProduct = (productId) => async (dispatch) => {
     }
 }
 
-export const deleteCategory = (catId) => async (dispatch) => {
+export const deleteCategory = (catId, token) => async (dispatch) => {
     try {
        
         dispatch({ type: CATEGORY_DELETE_REQUEST, payload: catId});
 
-        const { data } = await axios.delete('/api/products/categories/' + catId);
+        const { data } = await axios.delete('/api/products/categories/' + catId, {headers : {
+            'Authorization' : token
+        }});
         dispatch({type: CATEGORY_DELETE_SUCCESS, payload: data});
         
     } catch (error) {

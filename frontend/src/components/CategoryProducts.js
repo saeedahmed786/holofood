@@ -106,7 +106,7 @@ import { motion } from 'framer-motion';
          {products.map( product => {
              return(
                 <>
-                <div className = 'containers col-md-6 col-lg-4 col-sm-12 py-5 pl-3' key = {product._id}>
+                <motion.div whileHover = {{scale : 1.3}} transition = {{type: 'spring', stiffness: 300}} className = 'containers col-md-6 col-lg-4 col-sm-12 py-5 pl-3' key = {product._id}>
                 <div className = 'card h-100' style = {{width: '85%'}}>
                 <img src={'https://holofood.herokuapp.com/' + product.image} alt="Avatar" className="image"/>
                 <div className = 'card-body'>
@@ -121,7 +121,7 @@ import { motion } from 'framer-motion';
                     </div>
                 </div>
                 </div>
-                </div>
+                </motion.div>
                  </>
              )
          })

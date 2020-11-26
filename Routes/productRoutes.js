@@ -60,7 +60,7 @@ router.get('/categories',   async (req, res) => {
    
 });
 
-router.delete('/categories/:id',  async (req, res) => {
+router.delete('/categories/:id', authenticatorJWT ,  async (req, res) => {
     try {
      console.log(req.params.id);
        
@@ -117,7 +117,7 @@ router.get('/categories/filter/:id', async (req, res) => {
    
 
 
-router.post('/deals',  upload.single('file') ,async (req, res) => {
+router.post('/deals',  authenticatorJWT,  upload.single('file') ,async (req, res) => {
 
     const deal = new Deal({
         name: req.body.name,
@@ -159,7 +159,7 @@ router.get('/deal/:id', async (req, res) => {
    
 });
 
-router.delete('/deals/:id', async (req, res) => {
+router.delete('/deals/:id', authenticatorJWT,  async (req, res) => {
     console.log(req.params.id);
     const deal = await Deal.findById({_id: req.params.id});
     if(deal) {
@@ -200,7 +200,7 @@ router.get('/:id', async (req, res) => {
 
 
 
-router.post('/' ,upload.single('file') ,async (req, res) => {
+router.post('/' , authenticatorJWT , upload.single('file') ,async (req, res) => {
 
     const product = new Product({
         name: req.body.name,
@@ -221,7 +221,7 @@ router.post('/' ,upload.single('file') ,async (req, res) => {
 
 
 
-router.put('/:id', upload.single('file') ,  async (req, res) => {
+router.put('/:id', authenticatorJWT , upload.single('file') ,  async (req, res) => {
     const productId = req.params.id;
     const product = await Product.findById( productId);
     if(product) {
@@ -245,7 +245,7 @@ router.put('/:id', upload.single('file') ,  async (req, res) => {
     
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', authenticatorJWT , async (req, res, next) => {
     const deletedProduct = await Product.findById(req.params.id);
     if(deletedProduct) {
         await deletedProduct.remove();

@@ -13,7 +13,7 @@ const router = express.Router();
 
 
 
-router.post('/signin', signinRequestValidation, isRequestValidated, async(req, res) => {
+router.post('/signin', signinRequestValidation, isRequestValidated,  async(req, res) => {
    
    const { email, password } = req.body;
     try {

@@ -19,9 +19,9 @@ import { motion } from 'framer-motion';
                         animate = {{x: 0, opacity: 1, y: 8}} 
                         transition = {{duration: 3}}
                        
-                        className="navbar-brand pl-3" to="/" 
-                        > <Link style = {{color: 'white', textDecoration: 'none'}}><img src = {logo} alt = 'logo' 
-                        style = {{width: '100px'}} />
+                        className="navbar-brand pl-3"
+                        > <Link to="/" style = {{color: 'white', textDecoration: 'none'}}><img src = {logo} alt = 'logo' 
+                        style = {{width: '100px'}}   /> 
                         HOLO FOOD
                         </Link>
                         </motion.div>
@@ -63,7 +63,7 @@ import { motion } from 'framer-motion';
                             <>
                        
                     <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className="nav-link" to="/products"><i class="fas fa-user-shield"></i><br/>Admin Panel</Link>
+                        <Link className="nav-link" to="/products"><i class="fas fa-user-shield"></i><br/>Admin Panel <br/>For Only Saeed</Link>
                     </li>
                     
                     

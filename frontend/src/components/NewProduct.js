@@ -6,13 +6,16 @@ import axios from 'axios';
 import isEmpty from 'validator/lib/isEmpty';
 import { showErrormsg, showLoadingMsg, showSuccessmsg } from './messages';
 import { Link } from 'react-router-dom';
-import { createProduct } from './CreateProduct';
+// import { createProduct } from './CreateProduct';
 import CreateDeals from './createDeals';
+import cookie  from 'js-cookie';
+import Axios from 'axios';
 
   const CreateProduct = (props) => {
 
     
     const [categories, setCategories] = useState(null);
+    const [token, setToken] = useState('');
     const productsList = useSelector(state => state.productsList);
     const { products} = productsList;
     const [category, setCategory] = useState('');
@@ -44,6 +47,7 @@ import CreateDeals from './createDeals';
          dispatch(listProducts());
 
          loadCategories();
+         getToken();
 
         
         
@@ -53,6 +57,11 @@ import CreateDeals from './createDeals';
          //
        }
      }, [loadings]);
+
+
+     const getToken = () => {
+        setToken(cookie.get('token'))
+    }
 
      const submitHandler = (e) => {
          e.preventDefault();
@@ -91,7 +100,7 @@ import CreateDeals from './createDeals';
    
 
      const deleteHandler = (product) => {
-         dispatch(deleteProduct(product._id));
+         dispatch(deleteProduct(product._id, token));
          window.location.reload();
      }
 
@@ -117,16 +126,13 @@ import CreateDeals from './createDeals';
       * *********************************vv******************************************************************/
    
     const createCategory = async (data) => {
-    const config = {
-        headers: {
-            "Content-Type": "application/json"
-           
-
-        }
-    }
     
      
-    const response = await axios.post('/api/products/categories', data, config);
+    const response = await axios.post('/api/products/categories', data, {  headers: {
+        'Authorization' :  token
+       
+
+    }});
     return response;
 }
 
@@ -137,7 +143,7 @@ import CreateDeals from './createDeals';
       
 
   }
-  
+
   const handlecategorySubmit = (e) => {
       e.preventDefault();
       setLoadings(true);
@@ -195,7 +201,7 @@ import CreateDeals from './createDeals';
 
       
       const deleteCategoryHandler = async (cat) => {
-         dispatch(deleteCategory(cat._id));
+         dispatch(deleteCategory(cat._id, token));
          window.location.reload();
       }
 
@@ -223,6 +229,13 @@ import CreateDeals from './createDeals';
      /********************************************* Products ***********************************************
       * ****************************************************************************************
       * *********************************vv******************************************************************/
+
+     const createProduct = async (data) => {
+        const response = await Axios.post('/api/products', data, { headers: {
+            'Authorization' : token
+        }});
+        return response;
+    }
 
          
    const addProducts = () => {
