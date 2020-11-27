@@ -45,7 +45,8 @@ import Axios from 'axios';
      const dispatch = useDispatch();
      const getToken = () => {
          setToken(localStorage.getItem('token'));
-     }   
+     } 
+     
      console.log(token); 
      useEffect(() => {
        
@@ -54,6 +55,7 @@ import Axios from 'axios';
 
          loadCategories();
          getToken();
+         
 
         
         
@@ -143,10 +145,11 @@ import Axios from 'axios';
       * *********************************vv******************************************************************/
    
     const createCategory = async (data) => {
+        console.log(token)
     
      
     const response = await axios.post('/api/products/categories', data, {  headers: {
-        'Authorization' :  token
+        'authorization' : 'Bearer ' + token
        
 
     }});
