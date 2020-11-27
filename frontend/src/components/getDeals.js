@@ -43,7 +43,7 @@ export default function Deals() {
 
 				
 
-				       <div className=" col-sm-6 col-md-6 col-lg-3 mt-5">
+				       <div className=" col-sm-6 col-md-6 col-lg-3 mt-5" key = {deal._id}>
 
 								<div className="card h-100 mb-4">                    
 									<div className="card-header">                                

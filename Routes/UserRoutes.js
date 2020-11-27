@@ -38,14 +38,16 @@ router.post('/signin', signinRequestValidation, isRequestValidated,  async(req, 
 
         };
 
-        jwt.sign(payload, jwtSecret, {expiresIn: jwtExpire}, (err, token) => {
+        jwt.sign(payload, jwtSecret, {expiresIn: '1d'}, (err, token) => {
             if(err) console.log('jwt error', err);
             const { _id, name, email, role} = user;
 
             res.json({
                 token,
-                user: { _id, name, email, role},
+                user: { _id, name, email, role}
+
             });
+            console.log(token);
         
         });
         

@@ -9,6 +9,8 @@ import  cookie  from "js-cookie";
 export const setAuthentication = (token, user) => {
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('token', token);
+    console.log(token);
+    console.log(localStorage.getItem('token'));
 }
 
 export const isAuthenticated = () => {

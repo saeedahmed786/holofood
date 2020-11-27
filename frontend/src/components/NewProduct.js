@@ -64,7 +64,7 @@ import Axios from 'axios';
        return () => {
          //
        }
-     }, [loadings]);
+     }, []);
 
 
   
