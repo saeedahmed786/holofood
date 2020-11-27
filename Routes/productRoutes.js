@@ -124,7 +124,7 @@ router.post('/deals',  authenticatorJWT,  upload.single('file') ,async (req, res
         priceBefore: req.body.priceBefore,
         price: req.body.price,
         off: req.body.off,
-        image: req.file.filename,
+        pic: req.body.pic,
         countInStock: req.body.countInStock,
         description: req.body.description
        
@@ -200,12 +200,12 @@ router.get('/:id', async (req, res) => {
 
 
 
-router.post('/' , authenticatorJWT , upload.single('file') ,async (req, res) => {
+router.post('/' , authenticatorJWT ,async (req, res) => {
 
     const product = new Product({
         name: req.body.name,
         price: req.body.price,
-        image: req.file.filename,
+        pic: req.body.pic,
         countInStock: req.body.countInStock,
         description: req.body.description,
         category: req.body.productCategory

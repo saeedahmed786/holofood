@@ -6,7 +6,7 @@ const dealSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    image: {
+    pic: {
        required: true,
        type: String 
    },

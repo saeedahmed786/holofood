@@ -86,7 +86,7 @@ import Cookie  from 'js-cookie';
                  <>
              <motion.div whileHover = {{scale : 1.3}} transition = {{type: 'spring', stiffness: 300}} className = 'containers col-md-6 col-lg-4 col-xl-3 col-sm-6 py-5' key = {product._id}>
                 <div className = 'card' style = {{height: '90%', width: '90%'}}>
-                <img src={'https://holofood.herokuapp.com/' + product.image} alt="Avatar" className="image"/>
+                <img src={product.pic} alt="Avatar" className="image"/>
                 <div className = 'card-body'>
                             <h3>{product.name}</h3>
                             <p>Price: ${product.price}</p>

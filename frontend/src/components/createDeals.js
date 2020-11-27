@@ -7,20 +7,12 @@ import { showErrormsg, showLoadingMsg } from './messages';
  const CreateDeals = () => {
 
 
-      /********************************************* Create Deals ***********************************************
-      * ****************************************************************************************
-      * *********************************vv******************************************************************/
-       const createDeal = async (data) => {
-           const response = await Axios.post('/api/products/deals', data, {headers : {
-               'Authorization': token
-           }});
-           return response;
-       }
-
+     
 
 
     const [deals, setDeals] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
+    const [image, setImage] = useState('');
     const [token, setToken] = useState('');
     const [loadings, setLoadings] = useState('');
     const [productData, setProductData] = useState({
@@ -60,17 +52,22 @@ import { showErrormsg, showLoadingMsg } from './messages';
             setErrorMsg('All fields are required');
         } else {
             let formData = new FormData();
+            formData.append("upload_preset", "foodie");
             formData.append('file', file);
-            formData.append('name', name);
-            formData.append('priceBefore', priceBefore);
-            formData.append('price', price);
-            formData.append('off', off);
-            formData.append('description', description);
-            formData.append('countInStock', countInStock);
+            formData.append('cloud_name', 'saeedahmed');
+            fetch('https://api.cloudinary.com/v1_1/saeedahmed/image/upload', {
+                method: 'post',
+                body: formData
+            }).then(res => res.json())
+            .then(datam => {
+                setImage(datam.secure_url);
 
-            setLoadings(true);
+            }).catch(err => {
+                console.log(err);
+            })
+         
 
-            createDeal(formData).then( response => {
+            createDeal().then( response => {
                 console.log(response);
                 setLoadings(false);
                 window.location.reload();
@@ -97,6 +94,25 @@ import { showErrormsg, showLoadingMsg } from './messages';
             [e.target.name] : e.target.value
         })
     }
+
+     /********************************************* Create Deals ***********************************************
+      * ****************************************************************************************
+      * *********************************vv******************************************************************/
+     const createDeal = async () => {
+        const response = await Axios.post('/api/products/deals', {
+         name, 
+         pic: image, 
+         priceBefore, 
+         price,
+          off, 
+          countInStock, 
+          description
+        }, {headers : {
+            'Authorization': token
+        }});
+        return response;
+    }
+
 
      /********************************************* Load Categories ***********************************************
       * ****************************************************************************************
@@ -125,7 +141,7 @@ import { showErrormsg, showLoadingMsg } from './messages';
      }
      
      const getToken = () => {
-        setToken(cookie.get('token'))
+        setToken(localStorage.getItem('token'))
     }
  
 

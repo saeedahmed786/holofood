@@ -107,6 +107,7 @@ import { motion } from 'framer-motion';
                             <li className="nav-item pl-lg-3" data-toggle="collapse" data-target=".navbar-collapse.show">
                                <Link className=" logout" style = {{textDecoration: 'none'}}  onClick = {
                                     (e) => {
+                                       
                                         logout(() => {
                                         props.history.push('/signin');
                                     })

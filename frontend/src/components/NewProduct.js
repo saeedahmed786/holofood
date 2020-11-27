@@ -21,6 +21,7 @@ import Axios from 'axios';
     const productsList = useSelector(state => state.productsList);
     const { products} = productsList;
     const [category, setCategory] = useState('');
+    const [image, setImage] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
     const [successMsg, setSuccessMsg] = useState('');
     const [loadings, setLoadings] = useState('');
@@ -43,8 +44,9 @@ import Axios from 'axios';
     
      const dispatch = useDispatch();
      const getToken = () => {
-         setToken(cookie.get('token'));
-     }    
+         setToken(localStorage.getItem('token'));
+     }   
+     console.log(token); 
      useEffect(() => {
        
          
@@ -63,31 +65,42 @@ import Axios from 'axios';
      }, [loadings]);
 
 
-    //  export const getToken = () => {
-    //     setToken(cookie.get('token'))
-    // }
+  
 
      const submitHandler = (e) => {
          e.preventDefault();
 
          if(file === null) {
              setErrorMsg('Please select an image');
-         } else if(isEmpty(name) || 
+         } 
+         else if(isEmpty(name) || 
                   isEmpty(price) ||
                   isEmpty(description) || 
                   isEmpty(countInStock) || 
                   isEmpty(productCategory)) {
              setErrorMsg('All fields are required');
-         } else {
+         } 
+         else {
+             
              let formData = new FormData();
+             formData.append("upload_preset", "foodie");
              formData.append('file', file);
-             formData.append('name', name);
-             formData.append('price', price);
-             formData.append('description', description);
-             formData.append('countInStock', countInStock);
-             formData.append('productCategory', productCategory);
+             formData.append('cloud_name', 'saeedahmed');
+             fetch('https://api.cloudinary.com/v1_1/saeedahmed/image/upload', {
+                 method: 'post',
+                 body: formData
+             }).then(res => res.json())
+             .then(datam => {
+                 setImage(datam.secure_url);
 
-             createProduct(formData).then( response => {
+             }).catch(err => {
+                 console.log(err);
+             })
+          
+            
+             
+
+             createProduct().then( response => {
                    setSuccessMsg(
                     response.data.successMessage
                        );
@@ -234,9 +247,19 @@ import Axios from 'axios';
       * ****************************************************************************************
       * *********************************vv******************************************************************/
 
-     const createProduct = async (data) => {
-        const response = await Axios.post('/api/products', data, { headers: {
-            'Authorization' : token
+     const createProduct = async () => {
+        const response = await Axios.post('/api/products', {
+
+            name, 
+            price, 
+            pic: image,  
+            countInStock,
+             description,
+              productCategory
+            
+
+        }, { headers: {
+            'Authorization' :  token
         }});
         return response;
     }

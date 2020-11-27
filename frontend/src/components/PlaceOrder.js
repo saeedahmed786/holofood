@@ -105,7 +105,7 @@ export default function PlaceOrder (props) {
                             return (
                                 <div className = ' placeOrder-item' key = {item.id}>
                                    <div className = 'media pt-5'>
-                                       <img src = {'https://holofood.herokuapp.com/' + item.image} alt = { item.name } style= {{ width: '159px', height: '140px',}} className = 'img-fluid img-responsive pl-4 order-image'></img>      
+                                       <img src = {item.pic} alt = { item.name } style= {{ width: '159px', height: '140px',}} className = 'img-fluid img-responsive pl-4 order-image'></img>      
                                          <div className = 'media-body ml-5'>
                                            <Link to = { '/cart/' + item.product }> { item.name }</Link>
                                              <div className = 'font-weight-bolder'>

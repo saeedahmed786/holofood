@@ -37,7 +37,7 @@ import { motion } from 'framer-motion';
         
            <div className = 'row'>
            <div className = 'col-md-6 col-lg-6 pl-2'>
-           <img src = {'https://holofood.herokuapp.com/' + deal.image} alt = {deal.name} style = {{ width: '100%', height: '500px'}}></img>
+           <img src = {deal.pic} alt = {deal.name} style = {{ width: '100%', height: '500px'}}></img>
 
                 </div>
 
