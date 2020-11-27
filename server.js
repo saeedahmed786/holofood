@@ -27,7 +27,7 @@ mongoose.connect(config.mongoURI, {
 
 
 //MiddleWare
-app.use(cors());
+// app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.static(__dirname+ '/Routes/uploads'));

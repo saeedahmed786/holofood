@@ -11,6 +11,8 @@ import CreateDeals from './createDeals';
 import cookie  from 'js-cookie';
 import Axios from 'axios';
 
+
+
   const CreateProduct = (props) => {
 
     
@@ -40,7 +42,9 @@ import Axios from 'axios';
     
     
      const dispatch = useDispatch();
-
+     const getToken = () => {
+         setToken(cookie.get('token'));
+     }    
      useEffect(() => {
        
          
@@ -59,9 +63,9 @@ import Axios from 'axios';
      }, [loadings]);
 
 
-     const getToken = () => {
-        setToken(cookie.get('token'))
-    }
+    //  export const getToken = () => {
+    //     setToken(cookie.get('token'))
+    // }
 
      const submitHandler = (e) => {
          e.preventDefault();
