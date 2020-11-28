@@ -261,7 +261,7 @@ import Axios from 'axios';
             
 
         }, { headers: {
-            'Authorization' :  token
+            'Authorization' : 'Bearer ' +  token
         }});
         return response;
     }
