@@ -1,5 +1,4 @@
 import Axios from 'axios';
-import  cookie from 'js-cookie';
 import React, { useEffect, useState } from 'react'
 import isEmpty from 'validator/lib/isEmpty';
 import { showErrormsg, showLoadingMsg } from './messages';
@@ -108,7 +107,7 @@ import { showErrormsg, showLoadingMsg } from './messages';
           countInStock, 
           description
         }, {headers : {
-            'Authorization': token
+            'Authorization': 'Bearer ' +  token
         }});
         return response;
     }
@@ -132,7 +131,7 @@ import { showErrormsg, showLoadingMsg } from './messages';
 
     const deleteDealHandler = async (delId) => {
         const response = await Axios.delete('/api/products/deals/' + delId, { headers : {
-            'Authorization' :  token
+            'Authorization' : 'Bearer ' + token
         }});
         window.location.reload();
         return response;

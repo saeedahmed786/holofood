@@ -245,7 +245,7 @@ export const deleteProduct = (productId, token) => async (dispatch) => {
         dispatch({ type: PRODUCTS_DELETE_REQUEST, payload: productId});
 
         const { data } = await axios.delete('/api/products/' + productId, {headers : {
-            'Authorization' : token
+            'Authorization' : 'Bearer ' + token
         }});
         dispatch({type: PRODUCTS_DELETE_SUCCESS, payload: data});
         
@@ -261,7 +261,7 @@ export const deleteCategory = (catId, token) => async (dispatch) => {
         dispatch({ type: CATEGORY_DELETE_REQUEST, payload: catId});
 
         const { data } = await axios.delete('/api/products/categories/' + catId, {headers : {
-            'Authorization' : token
+            'Authorization' : 'Bearer ' + token
         }});
         dispatch({type: CATEGORY_DELETE_SUCCESS, payload: data});
         

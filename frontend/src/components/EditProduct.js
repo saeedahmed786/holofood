@@ -65,7 +65,7 @@ export default function EditProduct(props) {
 
     const updateProduct = (sendData) => {
     const response = Axios.put(`/api/products/${productId}`, sendData, {headers : {
-        'Authorization' : token
+        'Authorization' : 'Bearer ' + token
     }})
         return response;
     }
@@ -98,7 +98,7 @@ export default function EditProduct(props) {
             ******************************************************************/
 
             const getToken = () => {
-                setToken(cookie.get('token'))
+                setToken(localStorage.getItem('token'))
             }
     
     /********************************************* Load Categories ***********************************************

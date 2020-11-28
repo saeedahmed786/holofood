@@ -8,12 +8,11 @@ import { showErrormsg, showLoadingMsg, showSuccessmsg } from './messages';
 import { Link } from 'react-router-dom';
 // import { createProduct } from './CreateProduct';
 import CreateDeals from './createDeals';
-import cookie  from 'js-cookie';
 import Axios from 'axios';
 
 
 
-  const CreateProduct = (props) => {
+  const CreateProduct = () => {
 
     
     const [categories, setCategories] = useState(null);
