@@ -11,7 +11,6 @@ export default function Cart(props) {
     const qty = props.location.search ? Number(props.location.search.split('=')[1]): 1;
     const cart = useSelector(state => state.cart);
     const  {cartItems} = cart;
-    console.log(cart);
     const dispatch = useDispatch();
 
     useEffect(() => {

@@ -8,7 +8,7 @@ export default function PlaceOrder (props) {
    
     const cart = useSelector( state => state.cart);
     const { cartItems , shipping, payment} = cart;
-
+   
     
 
     if(!shipping) {
@@ -101,7 +101,6 @@ export default function PlaceOrder (props) {
                         </div>
                         :
                         cartItems.map( item => {
-                            console.log(item);
                             return (
                                 <div className = ' placeOrder-item' key = {item.id}>
                                    <div className = 'media pt-5'>

@@ -1,7 +1,6 @@
 const express = require('express');
 const Product = require('./productModel');
 const Category = require('./categoryModel');
-const upload = require('./multer');
 const Deal = require('./dealsModel');
 const { authenticatorJWT } = require('./authenticator');
 const router = express.Router();
@@ -62,7 +61,6 @@ router.get('/categories',   async (req, res) => {
 
 router.delete('/categories/:id', authenticatorJWT ,  async (req, res) => {
     try {
-     console.log(req.params.id);
        
       const deletedCategory = await Category.findById(req.params.id);
       if(deletedCategory) {
@@ -85,7 +83,6 @@ router.delete('/categories/:id', authenticatorJWT ,  async (req, res) => {
 
 
 router.get('/categories/filter/:id', async (req, res) => {
-    console.log(req.params.id);
     const catId = req.params.id;
     try {
         //    const findCategory = await Category.find({_id: catId});
@@ -117,7 +114,7 @@ router.get('/categories/filter/:id', async (req, res) => {
    
 
 
-router.post('/deals',  authenticatorJWT,  upload.single('file') ,async (req, res) => {
+router.post('/deals',  authenticatorJWT ,async (req, res) => {
 
     const deal = new Deal({
         name: req.body.name,
@@ -148,7 +145,6 @@ router.get('/deals', async (req, res) => {
 })
 
 router.get('/deal/:id', async (req, res) => {
-    console.log(req.params.id);
     const deal= await Deal.findOne({_id: req.params.id});
     if(deal) {
         res.status(200).json({deal});
@@ -160,7 +156,6 @@ router.get('/deal/:id', async (req, res) => {
 });
 
 router.delete('/deals/:id', authenticatorJWT,  async (req, res) => {
-    console.log(req.params.id);
     const deal = await Deal.findById({_id: req.params.id});
     if(deal) {
         await deal.remove();
@@ -179,7 +174,6 @@ router.delete('/deals/:id', authenticatorJWT,  async (req, res) => {
       * ****************************************************************************************
       * *********************************vv******************************************************************/
    
-
 
 
 
@@ -221,14 +215,14 @@ router.post('/' , authenticatorJWT ,async (req, res) => {
 
 
 
-router.put('/:id', authenticatorJWT , upload.single('file') ,  async (req, res) => {
+router.put('/:id', authenticatorJWT ,   async (req, res) => {
     const productId = req.params.id;
     const product = await Product.findById( productId);
     if(product) {
         product.name= req.body.name;
         product.price= req.body.price;
         product.countInStock= req.body.countInStock;
-        product.image= req.file.filename;
+        product.pic= req.body.pic;
         product.description= req.body.description;
         product.category = req.body.productCategory;
         

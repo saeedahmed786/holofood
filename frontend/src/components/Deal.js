@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 
   const Deal = (props) => {
      const dealId = props.match.params.id
-
      const [ qty, setQty] = useState(1);
      const [deal, setDeal] = useState('');
      useEffect(() => {
@@ -20,7 +19,6 @@ import { motion } from 'framer-motion';
      }
 
      const getDeal = async (dealId) => {
-         console.log(dealId);
          const response = await Axios.get('/api/products/deal/' + dealId);
          setDeal(response.data.deal);
          return response;

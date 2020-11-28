@@ -129,8 +129,7 @@ export default function Register() {
         },
  
       }
-
-   
+      
     const signUpForm = () => {
         return (
             <>

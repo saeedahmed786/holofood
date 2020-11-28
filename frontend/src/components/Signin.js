@@ -6,7 +6,6 @@ import isEmpty from 'validator/lib/isEmpty';
 import Axios from 'axios';
 import { setAuthentication } from './auth';
 import { motion } from 'framer-motion';
-import {getToken} from './CreateProduct';
 
 export default function Signin(props) {
       
@@ -54,7 +53,7 @@ export default function Signin(props) {
             errormsg:''
         });
     };
-
+   
     const submitHandler = (e) => {
         e.preventDefault();
        

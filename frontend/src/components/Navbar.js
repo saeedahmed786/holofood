@@ -31,28 +31,28 @@ import { motion } from 'framer-motion';
                         <div className="collapse navbar-collapse justify-content-between" id="navbarNav" style = {{color: 'white'}}>
                     <motion.ul initial = {{x:-300, opacity: 0.2}} animate = {{x: 0, opacity: 1}} transition = {{duration: 2, type : 'spring', stiffness: 10}} className="navbar-nav mr-auto text-center pt-3 text-light" style = {{fontSize: '15px', paddingLeft: '60px', textDecoration: 'none'}}>
                             <li className="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className="nav-link" to="/" ><i class="fas fa-home"></i><br/>Home</Link>
+                        <Link className="nav-link" to="/" ><i className="fas fa-home"></i><br/>Home</Link>
                     </li>
                    
 
                     <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link className=" nav-link" to = '/categoriesproducts'>
-                        <i class="fas fa-store-alt"></i><br/>Categories
+                        <i className="fas fa-store-alt"></i><br/>Categories
                         </Link>
                         
                         </li>
 
                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className="nav-link" to="/cart/:id"><i class="fas fa-shopping-cart"></i><br/>Cart</Link>
+                        <Link className="nav-link" to="/cart/:id"><i className="fas fa-shopping-cart"></i><br/>Cart</Link>
                     </li>
                    
                  
                     
                     <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className="nav-link" to="#"><i class="fas fa-address-card"></i><br/>About</Link>
+                        <Link className="nav-link" to="#"><i className="fas fa-address-card"></i><br/>About</Link>
                     </li>
                     <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className="nav-link" to="#"><i class="fas fa-phone"></i><br/>Contact</Link>
+                        <Link className="nav-link" to="#"><i className="fas fa-phone"></i><br/>Contact</Link>
                     </li>
                     
 
@@ -63,7 +63,7 @@ import { motion } from 'framer-motion';
                             <>
                        
                     <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className="nav-link" to="/products"><i class="fas fa-user-shield"></i><br/>Admin Panel <br/>For Only Saeed</Link>
+                        <Link className="nav-link" to="/products"><i className="fas fa-user-shield"></i><br/>Admin Panel <br/>For Only Saeed</Link>
                     </li>
                     
                     
@@ -88,7 +88,7 @@ import { motion } from 'framer-motion';
                         isAuthenticated() || isAuthenticated().role === 1 ? (
                             <li className="nav-item candidname" data-toggle="collapse" data-target=".navbar-collapse.show">
                              <Link className="" to="/profile" style = {{color: 'lightgrey'}}>
-                             <i class="fas fa-user-tie"></i><br/>{ isAuthenticated().name}
+                             <i className="fas fa-user-tie"></i><br/>{ isAuthenticated().name}
                              </Link> 
                             </li>
                              )
@@ -105,11 +105,10 @@ import { motion } from 'framer-motion';
                         isAuthenticated() && (
                             
                             <li className="nav-item pl-lg-3" data-toggle="collapse" data-target=".navbar-collapse.show">
-                               <Link className=" logout" style = {{textDecoration: 'none'}}  onClick = {
+                               <Link to = '/signin' className=" logout" style = {{textDecoration: 'none'}}  onClick = {
                                     (e) => {
                                        
                                         logout(() => {
-                                        props.history.push('/signin');
                                     })
                                     
                               }}> <i className="fas fa-sign-in-alt"></i><br/>Logout</Link>

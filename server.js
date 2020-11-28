@@ -25,7 +25,6 @@ mongoose.connect(config.mongoURI, {
     console.log( error.message);
 });
 
-
 //MiddleWare
 app.use(cors());
 app.use(morgan('dev'));

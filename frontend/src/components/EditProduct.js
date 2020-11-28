@@ -6,6 +6,7 @@ import { showErrormsg, showSuccessmsg } from './messages';
 export default function EditProduct(props) {
     const productId = props.match.params.id;
     const [token, setToken] = useState('');
+    const [image, setImage] = useState('');
     const [categories, setCategories] = useState(null);
     const [successMsg, setSuccessMsg] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
@@ -19,12 +20,12 @@ export default function EditProduct(props) {
        
        
     });
+    
     const{ name, file, price, countInStock, description, productCategory} = product;
 
     const getProduct = async () => {
         const response = await Axios.get('/api/products/' + productId);
         setProduct(response.data);
-        console.log(response.data);
 
         return response;
     }
@@ -63,8 +64,16 @@ export default function EditProduct(props) {
         })
     }
 
-    const updateProduct = (sendData) => {
-    const response = Axios.put(`/api/products/${productId}`, sendData, {headers : {
+    const updateProduct = () => {
+    const response = Axios.put(`/api/products/${productId}`, {
+        name,
+        pic: image,
+         price, 
+         countInStock,
+          description,
+           productCategory
+
+    }, {headers : {
         'Authorization' : 'Bearer ' + token
     }})
         return response;
@@ -75,14 +84,23 @@ export default function EditProduct(props) {
     const submitHandler = (e) => {
         e.preventDefault();
             let formData = new FormData();
+            formData.append('upload_preset', 'foodie');
             formData.append('file', file);
-            formData.append('name', name);
-            formData.append('price', price);
-            formData.append('description', description);
-            formData.append('countInStock', countInStock);
-            formData.append('productCategory', productCategory);
+            formData.append('cloud_name', 'saeedahmed');
+            fetch('https://api.cloudinary.com/v1_1/saeedahmed/image/upload', {
+                method: 'post',
+                body: formData
+            }).then(res => res.json())
+            .then(datam => {
+                setImage(datam.secure_url);
 
-            updateProduct(formData).then( response => {
+            }).catch(err => {
+                console.log(err);
+            })
+         
+            
+
+            updateProduct().then( response => {
                 setSuccessMsg('Product updated successfully')
            
              });
@@ -142,7 +160,7 @@ export default function EditProduct(props) {
                     }
                     <div className="form-group">
                     <label for="image">Image</label><br/>
-                    <input type="file" className="form-control-file"  name = 'file' className = 'w-50' id="image" onChange = {handleImageChange}/>
+                    <input type="file" className="form-control-file" value = {product.pic}  name = 'file' className = 'w-50' id="image" onChange = {handleImageChange}/>
                 </div>
                     <div>
                         <label htmlFor = 'name' className = 'font-weight-bolder'>Name:</label> <br/>

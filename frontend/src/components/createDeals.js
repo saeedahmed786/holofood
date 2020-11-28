@@ -4,11 +4,6 @@ import isEmpty from 'validator/lib/isEmpty';
 import { showErrormsg, showLoadingMsg } from './messages';
 
  const CreateDeals = () => {
-
-
-     
-
-
     const [deals, setDeals] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
     const [image, setImage] = useState('');
@@ -67,7 +62,6 @@ import { showErrormsg, showLoadingMsg } from './messages';
          
 
             createDeal().then( response => {
-                console.log(response);
                 setLoadings(false);
                 window.location.reload();
                 

@@ -46,9 +46,7 @@ router.post('/signin', signinRequestValidation, isRequestValidated,  async(req, 
                 token,
                 user: { _id, name, email, role}
 
-            });
-            console.log(token);
-        
+            });        
         });
         
     } catch (error) {
@@ -68,7 +66,6 @@ router.post('/register', registerValidation, isRequestValidated, async (req, res
     user.email = email;
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
-    console.log(user.password);
     
     const newUser = await user.save();
 

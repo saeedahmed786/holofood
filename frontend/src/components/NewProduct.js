@@ -6,7 +6,6 @@ import axios from 'axios';
 import isEmpty from 'validator/lib/isEmpty';
 import { showErrormsg, showLoadingMsg, showSuccessmsg } from './messages';
 import { Link } from 'react-router-dom';
-// import { createProduct } from './CreateProduct';
 import CreateDeals from './createDeals';
 import Axios from 'axios';
 
@@ -46,7 +45,6 @@ import Axios from 'axios';
          setToken(localStorage.getItem('token'));
      } 
      
-     console.log(token); 
      useEffect(() => {
        
          
@@ -144,7 +142,6 @@ import Axios from 'axios';
       * *********************************vv******************************************************************/
    
     const createCategory = async (data) => {
-        console.log(token)
     
      
     const response = await axios.post('/api/products/categories', data, {  headers: {

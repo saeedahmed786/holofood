@@ -5,7 +5,6 @@ import { DetailsProducts } from '../Redux/store';
 import { motion } from 'framer-motion';
 
   const Product = (props) => {
-
      const [ qty, setQty] = useState(1);
      const productDetails = useSelector(state => state.productDetails);
      const { product, error, loading } = productDetails;
