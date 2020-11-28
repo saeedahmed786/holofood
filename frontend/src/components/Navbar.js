@@ -63,7 +63,7 @@ import { motion } from 'framer-motion';
                             <>
                        
                     <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className="nav-link" to="/products"><i class="fas fa-user-shield"></i><br/>Admin Panel <br/>For Only Saeed Ch</Link>
+                        <Link className="nav-link" to="/products"><i class="fas fa-user-shield"></i><br/>Admin Panel <br/>For Only Saeed</Link>
                     </li>
                     
                     
