@@ -66,17 +66,18 @@ export default function EditProduct(props) {
 
     const updateProduct = () => {
     const response = Axios.put(`/api/products/${productId}`, {
-        name,
-        pic: image,
-         price, 
-         countInStock,
-          description,
-           productCategory
+        name, 
+        price, 
+        image,  
+        countInStock,
+         description,
+          productCategory
+        
 
-    }, {headers : {
-        'Authorization' : 'Bearer ' + token
-    }})
-        return response;
+    }, { headers: {
+        'Authorization' : 'Bearer ' +  token
+    }});
+    return response;
     }
 
    
@@ -118,6 +119,7 @@ export default function EditProduct(props) {
             const getToken = () => {
                 setToken(localStorage.getItem('token'))
             }
+            console.log(token);
     
     /********************************************* Load Categories ***********************************************
       * ****************************************************************************************
@@ -160,7 +162,7 @@ export default function EditProduct(props) {
                     }
                     <div className="form-group">
                     <label for="image">Image</label><br/>
-                    <input type="file" className="form-control-file" value = {product.pic}  name = 'file' className = 'w-50' id="image" onChange = {handleImageChange}/>
+                    <input type="file" className="form-control-file"   name = 'file' className = 'w-50' id="image" onChange = {handleImageChange}/>
                 </div>
                     <div>
                         <label htmlFor = 'name' className = 'font-weight-bolder'>Name:</label> <br/>

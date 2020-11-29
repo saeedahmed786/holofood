@@ -115,7 +115,7 @@ import Axios from 'axios';
      }
    
 
-     const deleteHandler = (product) => {
+     const deleteHandler = async (product) => {
          dispatch(deleteProduct(product._id, token));
          window.location.reload();
      }

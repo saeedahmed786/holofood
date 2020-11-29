@@ -217,12 +217,12 @@ router.post('/' , authenticatorJWT ,async (req, res) => {
 
 router.put('/:id', authenticatorJWT ,   async (req, res) => {
     const productId = req.params.id;
-    const product = await Product.findById( productId);
+    const product = await Product.findByIdAndUpdate( productId);
     if(product) {
         product.name= req.body.name;
         product.price= req.body.price;
         product.countInStock= req.body.countInStock;
-        product.pic= req.body.pic;
+        product.pic= req.body.image;
         product.description= req.body.description;
         product.category = req.body.productCategory;
         
