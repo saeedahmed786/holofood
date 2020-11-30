@@ -14,6 +14,7 @@ import AdminDashboard from './components/AdminDashboard';
 import CategoryProducts from './components/CategoryProducts';
 import Shipping from './components/Shipping';
 import EditProduct from './components/EditProduct';
+import EditDeal from './components/editDeals';
 import Deal from './components/Deal';
 import PlaceOrder from './components/PlaceOrder';
 import Payment from './components/Payment';
@@ -37,6 +38,7 @@ function App() {
     <Route exact path = '/' component = {Home} />
     <Route path = '/product/:id' component = {Product} />
     <Route path = '/edit/:id' component = {EditProduct} />
+    <Route path = '/edityourdeal/:id' component = {EditDeal} />
     <Route path = '/deals/:id' component = {Deal}/>
     <Route path = '/signin' component = {Signin}/>
     <Route path = '/register' component = {Register}/>

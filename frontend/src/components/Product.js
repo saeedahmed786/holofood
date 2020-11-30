@@ -72,7 +72,6 @@ import { motion } from 'framer-motion';
                     </p>
                       { product.countInStock > 0 && <button className = ' border w-50 btn btn-lg' style = {{background: 'radial-gradient( circle at top right, #16222A, #3A6073)', color: 'whitesmoke'}} onClick ={handleAddToCart} >
                       Add to Cart</button>}
-                     <p className = 'text-muted pt-2'> Category:  &nbsp;{product.Category}</p>
                      Share: &nbsp; &nbsp;
                      <i class="fab fa-facebook text-muted"></i>
                      <i class="fab fa-twitter text-muted pl-4"></i>

@@ -41,6 +41,9 @@ import { useState } from 'react';
    const CATEGORY_DELETE_FAIL = 'CATEGORY_DELETE_FAIL';
    const CART_SAVE_SHIPPING = 'CART_SAVE_SHIPPING';
    const CART_SAVE_PAYMENT = 'CART_SAVE_PAYMENT';
+   const  PRODUCTS_EDIT_REQUEST = 'PRODUCTS_EDIT_REQUEST';
+   const PRODUCTS_EDIT_SUCCESS = 'PRODUCTS_EDIT_SUCCESS'
+   const PRODUCTS_EDIT_FAIL = 'PRODUCTS_EDIT_FAIL';
 
  
 
@@ -156,6 +159,24 @@ const productSaveReducer = (state = {product: {}}, action) => {
             product: action.payload
         };
         case PRODUCTS_SAVE_FAIL: return {
+            loading: false,
+            error: action.payload
+        };
+        default: return state
+        
+    }
+}
+const productEditReducer = (state = {products: {}}, action) => {
+    switch(action.type) {
+        case PRODUCTS_EDIT_REQUEST: return {
+            loading: true
+        };
+        case PRODUCTS_EDIT_SUCCESS: return {
+            loading: false,
+            success: true,
+            products: action.payload
+        };
+        case PRODUCTS_EDIT_FAIL: return {
             loading: false,
             error: action.payload
         };
@@ -363,6 +384,30 @@ export const savePayment = (data) => (dispatch) => {
 
 }
 
+export const editProduct = (product) => async (dispatch) => {
+    dispatch({type: PRODUCTS_EDIT_REQUEST})
+    try{
+
+       const { data } = axios.post('https://api.cloudinary.com/v1_1/saeedahmed/image/upload', product)
+
+     dispatch({ type: PRODUCTS_EDIT_SUCCESS, payload:  data});
+     
+ 
+
+ 
+}
+
+
+ 
+
+
+ 
+catch (error) {
+ dispatch({ type: PRODUCTS_EDIT_FAIL, payload: error.message})
+ 
+}
+
+}
 
 
 
@@ -376,6 +421,7 @@ export const savePayment = (data) => (dispatch) => {
     productDetails: productDetailsReducer,
     cart: addToCartReducer,
     productSave: productSaveReducer,
+    productEdit: productEditReducer,
     productDelete: productDeleteReducer,
     catProductsDetails: catProductsDetailsReducer,
     

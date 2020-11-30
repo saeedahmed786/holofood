@@ -5,10 +5,8 @@ import { useSelector } from 'react-redux';
 import { listProducts } from '../Redux/store';
 import '../index.css';
 import iphone from '../images/iphone.jpg';
-import slide0 from '../images/header-image.jpg'
 import Deals from './getDeals';
-import { motion, AnimatePresence } from "framer-motion";
-import Cookie  from 'js-cookie';
+import { motion } from "framer-motion";
 
  const Slideshow = () => (
     <motion.div

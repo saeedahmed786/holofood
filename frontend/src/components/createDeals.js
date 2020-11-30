@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import isEmpty from 'validator/lib/isEmpty';
 import { showErrormsg, showLoadingMsg } from './messages';
 
@@ -39,10 +40,10 @@ import { showErrormsg, showLoadingMsg } from './messages';
         if(file === null) {
             setErrorMsg('Please select an image');
         } else if(isEmpty(name) || 
-                 isEmpty(priceBefore) ||
-                 isEmpty(price) ||
-                 isEmpty(description) || 
-                 isEmpty(countInStock)) {
+        isEmpty(priceBefore) ||
+        isEmpty(price) ||
+        isEmpty(description) || 
+        isEmpty(countInStock)) {
             setErrorMsg('All fields are required');
         } else {
             let formData = new FormData();
@@ -158,7 +159,7 @@ import { showErrormsg, showLoadingMsg } from './messages';
                                     
                                         </h4>
                                         <button type = 'button' className = 'btn  float-right mr-2' onClick = {() => deleteDealHandler(response._id)}><i className = "fa fa-trash-alt"></i>Delete</button>
-                                        <button type = 'button' className = 'btn  float-right mr-2'><i className = "fa fa-edit"></i>Edit</button>
+                                        <Link to ={'/edityourdeal/' + response._id} type = 'button' className = 'btn  float-right mr-2'><i className = "fa fa-edit"></i>Edit</Link>
 
                                 </li>
                                 )

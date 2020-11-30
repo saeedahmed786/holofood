@@ -167,6 +167,33 @@ router.delete('/deals/:id', authenticatorJWT,  async (req, res) => {
     }
 })
 
+router.put('/deals/:id', authenticatorJWT ,   async (req, res) => {
+    const productId = req.params.id;
+    console.log(req.body.pic);
+    const product = await Deal.findById( productId);
+    if(product) {
+        product.name = req.body.name,
+        product.priceBefore = req.body.priceBefore,
+        product.price = req.body.price,
+        product.off = req.body.off,
+        product.pic = req.body.pic,
+        product.countInStock = req.body.countInStock,
+        product.description = req.body.description
+        
+
+        const updatedProduct = await product.save();
+        if(updatedProduct) {
+            return res.status(200).send({ successMessage: 'Product Updated'});
+        }
+   
+
+    }
+    return res.status(500).send({err: 'Error in updating Product.'});
+       
+    
+});
+
+
 
 
 
@@ -194,6 +221,7 @@ router.get('/:id', async (req, res) => {
 
 
 
+
 router.post('/' , authenticatorJWT ,async (req, res) => {
 
     const product = new Product({
@@ -217,12 +245,13 @@ router.post('/' , authenticatorJWT ,async (req, res) => {
 
 router.put('/:id', authenticatorJWT ,   async (req, res) => {
     const productId = req.params.id;
-    const product = await Product.findByIdAndUpdate( productId);
+    console.log(req.body.pic);
+    const product = await Product.findById( productId);
     if(product) {
         product.name= req.body.name;
         product.price= req.body.price;
         product.countInStock= req.body.countInStock;
-        product.pic= req.body.image;
+        product.pic= req.body.pics;
         product.description= req.body.description;
         product.category = req.body.productCategory;
         

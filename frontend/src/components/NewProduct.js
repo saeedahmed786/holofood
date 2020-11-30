@@ -89,8 +89,8 @@ import Axios from 'axios';
                  method: 'post',
                  body: formData
              }).then(res => res.json())
-             .then(datam => {
-                 setImage(datam.secure_url);
+             .then(data => {
+                 setImage(data.secure_url);
 
              }).catch(err => {
                  console.log(err);
@@ -221,26 +221,6 @@ import Axios from 'axios';
          window.location.reload();
       }
 
-  
-  
-  
-  
-
-
-
- 
-  
-  
-
- 
-    
-    
-  
-
-
-
-    
-     
    
      /********************************************* Products ***********************************************
       * ****************************************************************************************
@@ -314,7 +294,7 @@ import Axios from 'axios';
             <div className = ' modal' id = 'addProductModal'>
             <div className = 'modal-dialog modal-dialog-centered modal-lg'>
             <div className = 'modal-content text-white' style = {{background: 'radial-gradient( circle at top right, #16222A, #3A6073)', color: 'lightgray'}}>
-            <form onSubmit = {submitHandler} enctype="multipart/form-data">
+            <form onSubmit = {submitHandler}>
             <div className = 'modal-header bg-info'>
                 <h3 className = 'modal-title'>Create a Product</h3>
                 <button className = 'close' data-dismiss = 'modal'>
@@ -481,20 +461,13 @@ import Axios from 'axios';
     </div>
     )
 }
- 
-
-
-
-
-
-  
-
 
    return (
        <>
        {addProducts()}
        {showcategoryModal()}
-
+       
+      
       
        </>
    )
@@ -504,3 +477,5 @@ import Axios from 'axios';
     
 
 export default CreateProduct;
+
+
