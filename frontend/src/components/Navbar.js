@@ -101,7 +101,7 @@ import cookie from 'js-cookie';
                     {
                         isAuthenticated() && (
                             
-                            <li className="nav-item pl-lg-3" data-toggle="collapse" data-target=".navbar-collapse.show">
+                            <li className="nav-item pl-lg-3 logout-icon" data-toggle="collapse" data-target=".navbar-collapse.show">
                                <Link to = '/signin' className=" logout" style = {{textDecoration: 'none'}}  onClick = {
                                     (e) => {
                                        
@@ -113,19 +113,19 @@ import cookie from 'js-cookie';
 
                         )
                     }
-                    <div className = 'pl-lg-5 pt-3'>
+                    <div  className = 'nav-item pl-lg-5 pt-3 cart-icon' data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link to="/cart/:id"><i className="fas fa-shopping-cart cart pt-2" style = {{textDecoration: 'none'}}></i>
                     
                         </Link>
                         
-                        <span class="badge badge-light " style = {{position: 'relative', bottom: '17px'}}>
+                        <span class="badge badge-light cart-badge" style = {{position: 'relative', bottom: '17px'}}>
                      
                      {
                          notification ? notification.length : 0
                          }
                      </span>
+                     </div>
 
-                    </div>
                   
 
                          </motion.ul>

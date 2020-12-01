@@ -7,8 +7,10 @@ const  {registerValidation} = require('./validation');
 const  {isRequestValidated} = require('./validation');
 const {jwtSecret} = require('../config/keys');
 const {jwtExpire} = require('../config/keys');
+const {api_key} = require('../config/keys');
+const {DOMAIN} = require('../config/keys');
 const router = express.Router();
-
+const mailgun = require("mailgun-js");
 
 
 
@@ -101,6 +103,34 @@ router.post('/register', registerValidation, isRequestValidated, async (req, res
 
     
 });
+
+
+/*******************************************************************************
+********************************Contact Us***************************************
+                     ********************************/
+    
+          router.post('/contact', async(req, res) => {
+                const {email, subject, message} = req.body;
+                const mg = mailgun({apiKey: api_key, domain: DOMAIN});
+                const data = {
+                    from: email,
+                    to: 'saeedchachar987654@gmail.com',
+                    subject: subject,
+                    text: message
+                };
+                mg.messages().send(data, function (error, body) {
+                    res.json({successMessage: 'Your message has been sent successfully!'});
+                    if(error) {
+                        res.json({err: 'Message not set!'})
+                    }
+                     else {
+                         res.json(body);
+                     }
+                    });
+               
+                        
+                    });
+
 
 
 

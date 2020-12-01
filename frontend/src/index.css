@@ -215,9 +215,54 @@ body a {
  
 }
 
+@media only screen and (min-width: 993px) and (max-width: 1121px) {
+  .cart-badge {
+    position: relative;
+    left: 15px;
+    bottom: 20px;
+  }
+ 
+
+
+}
+
+@media only screen and (min-width: 993px) {
+  .candidname {
+    padding-top: 12px;
+
+  }
+  .logout-icon {
+    padding-top: 11px;
+
+  }
+ .cart-icon {
+    margin-top: 12px;
+
+  }
+ 
+
+
+}
+
+@media only screen and (min-width: 1221px) and (max-width: 1340px ) {
+  
+  .cart-badge {
+    position: relative;
+    left: 20px;
+  }
+ 
+
+
+}
+
+
+
 @media only screen and (min-width: 992px) and (max-width: 1220px ) {
   .candidname {
     margin-left: 100px;
+  }
+  .logout {
+    padding-top: 100px;
   }
  
 

@@ -111,7 +111,7 @@ import { Link } from 'react-router-dom';
             <div className="modal-dialog" role="document">
            <div className="modal-content">
              <div className="modal-header bg-dark text-white">
-               <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+               <h5 className="modal-title" id="exampleModalLabel">Holo Food</h5>
                <button type="button" className="close text-white" data-dismiss="modal" aria-label="Close">
                  <span aria-hidden="true">&times;</span>
                </button>
