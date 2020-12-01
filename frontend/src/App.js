@@ -18,6 +18,7 @@ import EditDeal from './components/editDeals';
 import Deal from './components/Deal';
 import PlaceOrder from './components/PlaceOrder';
 import Payment from './components/Payment';
+import Contact from './components/Contact';
 
 
 
@@ -42,6 +43,7 @@ function App() {
     <Route path = '/deals/:id' component = {Deal}/>
     <Route path = '/signin' component = {Signin}/>
     <Route path = '/register' component = {Register}/>
+    <Route path = '/contact' component = {Contact}/>
     <Route path = '/categoriesproducts' component = {CategoryProducts}/>
     <AdminRoute exact path = '/products' component = {ProductsCreate}/>
     <AdminRoute exact path = '/admin' component = {AdminDashboard}/>

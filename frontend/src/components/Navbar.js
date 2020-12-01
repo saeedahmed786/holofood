@@ -49,7 +49,7 @@ import cookie from 'js-cookie';
                         <Link className="nav-link" to="#"><i className="fas fa-address-card"></i><br/>About</Link>
                     </li>
                     <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className="nav-link" to="#"><i className="fas fa-phone"></i><br/>Contact</Link>
+                        <Link className="nav-link" to="/contact"><i className="fas fa-phone"></i><br/>Contact</Link>
                     </li>
                     
 
