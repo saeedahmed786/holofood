@@ -132,8 +132,8 @@ import { Link } from 'react-router-dom';
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div className="modal-body bg-success text-white">
-                     <p className = 'bg-sucess'><i className="fas fa-check-circle bg-sucess"></i> Product added to cart successfully!</p>
+                    <div className="modal-body alert-success">
+                     <p className = ''><i className="fas fa-check-circle bg-sucess"></i> Product added to cart successfully!</p>
                     </div>
                     <div className="modal-footer">
                       <button onClick = {handleCart} type="button" className="btn btn-secondary" data-dismiss = 'modal'><i className="fas fa-arrow-circle-left"></i> Continue Shopping</button>
