@@ -9,7 +9,7 @@ import cookie from 'js-cookie';
  function Navbar(props) {
    
    
-   
+     const notification = cookie.getJSON('cartItems');
     return (
 
         <>
@@ -115,15 +115,15 @@ import cookie from 'js-cookie';
                     }
                     <div className = 'pl-lg-5 pt-3'>
                         <Link to="/cart/:id"><i className="fas fa-shopping-cart cart pt-2" style = {{textDecoration: 'none'}}></i>
-                        <span style = {{position: 'relative', bottom: '17px'}}>
-                        <span class="badge badge-light ">{
-                     
-                     cookie.getJSON('cartItems').length
-   
-                    }
-                 </span>
-                 </span> 
+                    
                         </Link>
+                        
+                        <span class="badge badge-light " style = {{position: 'relative', bottom: '17px'}}>
+                     
+                     {
+                         notification ? notification.length : 0
+                         }
+                     </span>
 
                     </div>
                   

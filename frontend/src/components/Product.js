@@ -92,9 +92,9 @@ import { Link } from 'react-router-dom';
                     <br/><br/>
                      
                      Share: &nbsp; &nbsp;
-                     <i class="fab fa-facebook text-muted"></i>
-                     <i class="fab fa-twitter text-muted pl-4"></i>
-                     <i class="fab fa-instagram text-muted pl-4"></i>
+                     <Link to = 'https://web.facebook.com/'><i className="fab fa-facebook text-muted"></i> </Link>
+                     <Link to = 'https://web.twitter.com'><i className="fab fa-twitter text-muted pl-4"></i> </Link>
+                     <Link to = 'https://web.instagram.com'><i className="fab fa-instagram text-muted pl-4"></i> </Link>
 
                    </div>
 
@@ -124,20 +124,20 @@ import { Link } from 'react-router-dom';
             const showCartNotification = () => {
                     return (
                       <div className = 'modal fade' id = 'exampleModalLong' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                   <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <div className="modal-dialog" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header bg-dark text-white">
+                      <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" className="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">
-                     <p className = 'bg-sucess'>Product added to cart successfully!</p>
+                    <div className="modal-body bg-success text-white">
+                     <p className = 'bg-sucess'><i className="fas fa-check-circle bg-sucess"></i> Product added to cart successfully!</p>
                     </div>
-                    <div class="modal-footer">
-                      <button onClick = {handleCart} type="button" class="btn btn-secondary" data-dismiss = 'modal'>Continue Shopping</button>
-                      <button  onClick = {handleAddToCart} data-dismiss = 'modal'  type="button" class="btn btn-primary">Go to Cart</button>
+                    <div className="modal-footer">
+                      <button onClick = {handleCart} type="button" className="btn btn-secondary" data-dismiss = 'modal'><i className="fas fa-arrow-circle-left"></i> Continue Shopping</button>
+                      <button  onClick = {handleAddToCart} data-dismiss = 'modal'  type="button" className="btn btn-info"> Go to Cart &nbsp; <i className="fas fa-arrow-circle-right bg-info"></i></button>
                     </div>
                   </div>
               </div>

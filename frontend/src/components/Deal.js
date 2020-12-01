@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import Axios from 'axios';
 import { motion } from 'framer-motion';
 import { dealAddToCart } from '../Redux/store';
+import { Link } from 'react-router-dom';
 
   const Deal = (props) => {
 
@@ -80,14 +81,13 @@ import { dealAddToCart } from '../Redux/store';
                        className = ' border w-50 btn btn-light btn-lg'>
                       Add to Cart</button>} <br/> <br/>
                      Share: &nbsp; &nbsp;
-                     <i class="fab fa-facebook text-muted"></i>
-                     <i class="fab fa-twitter text-muted pl-4"></i>
-                     <i class="fab fa-instagram text-muted pl-4"></i>
-
+                     <Link to = 'https://web.facebook.com/'><i className="fab fa-facebook text-muted"></i> </Link>
+                     <Link to = 'https://web.twitter.com'><i className="fab fa-twitter text-muted pl-4"></i> </Link>
+                     <Link to = 'https://web.instagram.com'><i className="fab fa-instagram text-muted pl-4"></i> </Link>
+                  
                    </div>
 
-                  
-
+            
                   
                  
               
@@ -108,20 +108,20 @@ import { dealAddToCart } from '../Redux/store';
         const dealModal = () => {
           return (
             <div className = 'modal fade' id = 'exampleModalLong' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-           <div class="modal-content">
-             <div class="modal-header bg-dark text-white">
-               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <div className="modal-dialog" role="document">
+           <div className="modal-content">
+             <div className="modal-header bg-dark text-white">
+               <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
                <button type="button" className="close text-white" data-dismiss="modal" aria-label="Close">
                  <span aria-hidden="true">&times;</span>
                </button>
              </div>
-             <div class="modal-body alert-success">
-              <p><i class="fas fa-check-circle bg-sucess"></i> Deal added to cart successfully!</p>
+             <div className="modal-body alert-success">
+              <p><i className="fas fa-check-circle bg-sucess"></i> Deal added to cart successfully!</p>
              </div>
-             <div class="modal-footer">
-               <button onClick = {handleCart} type="button" class="btn btn-secondary" data-dismiss = 'modal'><i class="fas fa-arrow-circle-left"></i> Continue Shopping</button>
-               <button  onClick = {handleAddToCart} data-dismiss = 'modal'  type="button" class="btn btn-info">Go to Cart &nbsp; <i class="fas fa-arrow-circle-right bg-info"></i></button>
+             <div className="modal-footer">
+               <button onClick = {handleCart} type="button" className="btn btn-secondary" data-dismiss = 'modal'><i className="fas fa-arrow-circle-left"></i> Continue Shopping</button>
+               <button  onClick = {handleAddToCart} data-dismiss = 'modal'  type="button" className="btn btn-info">Go to Cart &nbsp; <i className="fas fa-arrow-circle-right bg-info"></i></button>
              </div>
            </div>
        </div>
