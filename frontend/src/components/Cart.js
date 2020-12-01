@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import '../index.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { AddToCart, dealAddToCart,  removeFromCart } from '../Redux/store';
+import { removeFromCart } from '../Redux/store';
 import { isAuthenticated } from './auth';
 import { motion } from 'framer-motion';
+import { ToastContainer, toast } from 'react-toastify';
 
+toast.configure();
 export default function Cart(props) {
-
+    const notify = () => toast.info("Product removed from cart successfully");
     const productId = props.match.params.id;
     const qty = props.location.search ? Number(props.location.search.split('=')[1]): 1;
     const cart = useSelector(state => state.cart);
@@ -14,11 +16,11 @@ export default function Cart(props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(productId) {
-            dispatch(AddToCart(productId, qty));
-            dispatch(dealAddToCart(productId, qty));
+        // if(productId) {
+        //     dispatch(AddToCart(productId, qty));
+        //     dispatch(dealAddToCart(productId, qty));
             
-        }
+        // }
         
         return () => {
             
@@ -26,6 +28,8 @@ export default function Cart(props) {
     }, []);
     const removeFromCartHandler = (productId) => {
         dispatch(removeFromCart(productId));
+        notify();
+        window.location.reload();
 
     }
     const checkOutHandler = () => {

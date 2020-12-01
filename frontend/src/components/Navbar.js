@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { isAuthenticated, logout } from './auth';
 import logo  from '../images/logo.png';
 import { motion } from 'framer-motion';
+import cookie from 'js-cookie';
 
  function Navbar(props) {
    
@@ -41,10 +42,6 @@ import { motion } from 'framer-motion';
                         </Link>
                         
                         </li>
-
-                        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className="nav-link" to="/cart/:id"><i className="fas fa-shopping-cart"></i><br/>Cart</Link>
-                    </li>
                    
                  
                     
@@ -116,11 +113,30 @@ import { motion } from 'framer-motion';
 
                         )
                     }
+                    <div className = 'pl-lg-5 pt-3'>
+                        <Link to="/cart/:id"><i className="fas fa-shopping-cart cart pt-2" style = {{textDecoration: 'none'}}></i>
+                        <span style = {{position: 'relative', bottom: '17px'}}>
+                        <span class="badge badge-light ">{
+                     
+                     cookie.getJSON('cartItems').length
+   
+                    }
+                 </span>
+                 </span> 
+                        </Link>
+
+                    </div>
+                  
 
                          </motion.ul>
+                         
+                    
                         </div>
+                      
+
                         </nav>
-       
+                     
+                    
 
                 
         </>

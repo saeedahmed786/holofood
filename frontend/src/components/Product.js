@@ -1,10 +1,13 @@
 import React, { useEffect, useState} from 'react';
 import '../index.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { DetailsProducts } from '../Redux/store';
+import { AddToCart, dealAddToCart, DetailsProducts } from '../Redux/store';
 import { motion } from 'framer-motion';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
   const Product = (props) => {
+    const productId = props.match.params.id;
      const [ qty, setQty] = useState(1);
      const productDetails = useSelector(state => state.productDetails);
      const { product, error, loading } = productDetails;
@@ -12,13 +15,22 @@ import { motion } from 'framer-motion';
 
      useEffect(() => {
        dispatch(DetailsProducts(props.match.params.id)); 
+       if(productId) {
+        dispatch(AddToCart(productId, qty));
+        dispatch(dealAddToCart(productId, qty));
+        
+    }
        return () => {
          
        }
      }, [])
      
      const handleAddToCart = () => {
-       props.history.push('/cart/' + props.match.params.id + '?qty=' + qty)
+       props.history.push('/cart/' + props.match.params.id + '?qty=' + qty);
+     }
+     const handleCart = () => {
+      props.history.push('/');
+
      }
      const framervariant =  {
        hidden : {
@@ -37,9 +49,11 @@ import { motion } from 'framer-motion';
        }
 
      }
+
+    
   
          
-   
+   const cartAdditionComponent = () => {
         return ( 
           
            loading? <div>loading...</div>: error? <div>{error}</div>:
@@ -70,8 +84,13 @@ import { motion } from 'framer-motion';
                     
                     </select>
                     </p>
-                      { product.countInStock > 0 && <button className = ' border w-50 btn btn-lg' style = {{background: 'radial-gradient( circle at top right, #16222A, #3A6073)', color: 'whitesmoke'}} onClick ={handleAddToCart} >
-                      Add to Cart</button>}
+                      { product.countInStock > 0 && <button type="button"  data-toggle="modal" data-target="#exampleModalLong"
+                     className = ' border w-50 btn btn-lg' style = {{background: 'radial-gradient( circle at top right, #16222A, #3A6073)', color: 'whitesmoke'}} >
+                      Add to Cart</button>
+                    }
+                  
+                    <br/><br/>
+                     
                      Share: &nbsp; &nbsp;
                      <i class="fab fa-facebook text-muted"></i>
                      <i class="fab fa-twitter text-muted pl-4"></i>
@@ -100,6 +119,43 @@ import { motion } from 'framer-motion';
             
           
         );
+                  }
+
+            const showCartNotification = () => {
+                    return (
+                      <div className = 'modal fade' id = 'exampleModalLong' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                     <p className = 'bg-sucess'>Product added to cart successfully!</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button onClick = {handleCart} type="button" class="btn btn-secondary" data-dismiss = 'modal'>Continue Shopping</button>
+                      <button  onClick = {handleAddToCart} data-dismiss = 'modal'  type="button" class="btn btn-primary">Go to Cart</button>
+                    </div>
+                  </div>
+              </div>
+              </div>
+                    )
+                  }
+              
+              
+
+    return (
+       <>
+     { cartAdditionComponent()}
+     { showCartNotification()}
+
+      </>
+    )
+
+
 
   }
     

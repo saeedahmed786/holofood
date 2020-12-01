@@ -66,11 +66,15 @@ export default function Deals() {
 											<div className="promotion-price-text">${deal.price}</div> 
 											</div>
 											</div> :
-											<div style = {{ backgroundColor: '#3A6073', color: 'whitesmoke',position: "relative", top: '60px', left: '171px', border: '2px solid black'}}>
+											<div style = {{ backgroundColor: '#3A6073', color: 'whitesmoke',position: "relative", top: '90px', left: '171px'}}>
 											<div className="promotion-price-desc font-weight-bolder">Price</div>
 											<div className="promotion-price-text">${deal.price}</div> 
 										
 											</div>
+										
+											
+											
+											
 											
 											
 											 

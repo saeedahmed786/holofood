@@ -1,30 +1,43 @@
 import React, { useEffect, useState} from 'react';
 import '../index.css';
+import { useDispatch } from 'react-redux';
 import Axios from 'axios';
 import { motion } from 'framer-motion';
+import { dealAddToCart } from '../Redux/store';
 
   const Deal = (props) => {
+
+    const dispatch = useDispatch('')
      const dealId = props.match.params.id
      const [ qty, setQty] = useState(1);
      const [deal, setDeal] = useState('');
      useEffect(() => {
          getDeal(dealId)
+         if(dealId) {
+        dispatch(dealAddToCart(dealId, qty));
+         }
+
        return () => {
          
        }
      }, [])
      
-     const handleAddToCart = () => {
-       props.history.push('/cart/' + props.match.params.id + '?qty=' + qty)
-     }
 
      const getDeal = async (dealId) => {
          const response = await Axios.get('/api/products/deal/' + dealId);
          setDeal(response.data.deal);
          return response;
              }
+
+    const handleAddToCart = () => {
+              props.history.push('/cart/' + props.match.params.id + '?qty=' + qty);
+            }
+    const handleCart = () => {
+             props.history.push('/');
+       
+            }
   
-         
+  const dealHandler = () => {       
    
         return ( 
             <>         
@@ -63,7 +76,8 @@ import { motion } from 'framer-motion';
                     
                     </select>
                     </p>
-                      { deal.countInStock > 0 && <button className = ' border w-50 btn btn-light btn-lg' onClick ={handleAddToCart} >
+                      { deal.countInStock > 0 && <button type = 'button' data-toggle="modal" data-target="#exampleModalLong"
+                       className = ' border w-50 btn btn-light btn-lg'>
                       Add to Cart</button>} <br/> <br/>
                      Share: &nbsp; &nbsp;
                      <i class="fab fa-facebook text-muted"></i>
@@ -88,6 +102,39 @@ import { motion } from 'framer-motion';
             
           
         )
+                    }
+
+
+        const dealModal = () => {
+          return (
+            <div className = 'modal fade' id = 'exampleModalLong' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header bg-dark text-white">
+               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+               <button type="button" className="close text-white" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body alert-success">
+              <p><i class="fas fa-check-circle bg-sucess"></i> Deal added to cart successfully!</p>
+             </div>
+             <div class="modal-footer">
+               <button onClick = {handleCart} type="button" class="btn btn-secondary" data-dismiss = 'modal'><i class="fas fa-arrow-circle-left"></i> Continue Shopping</button>
+               <button  onClick = {handleAddToCart} data-dismiss = 'modal'  type="button" class="btn btn-info">Go to Cart &nbsp; <i class="fas fa-arrow-circle-right bg-info"></i></button>
+             </div>
+           </div>
+       </div>
+       </div>
+          )
+        }
+
+      return (
+        <>
+        {dealHandler()}
+        {dealModal()}
+        </>
+      )
 
   }
     

@@ -268,7 +268,6 @@ import Axios from 'axios';
                                     
                                         </Link>
                                         <button type = 'button' className = 'btn  float-right mr-2'  onClick = {() => deleteCategoryHandler(response)}> <i className = "fa fa-trash-alt"></i>Delete</button>
-                                        <button type = 'button' className = 'btn  float-right '><i className = "fa fa-edit"></i>Edit</button>
 
                                 </li>
                                 )
