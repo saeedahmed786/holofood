@@ -53,8 +53,8 @@ import { motion } from "framer-motion";
                     <motion.div initial = {{opacity: 0}} animate = {{opacity: 1}} transition= {{duration: 6}} className="col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-0" style = {{paddingTop: '100px'}}>
                    
                         <h1 className = '  mb-3 mt-5' style = {{fontSize: '30px', display: 'block'}}>The revolution is here.</h1>
-                        <p className = 'font-weight-light' style = {{display: 'block'}}>Mauris egestas tellus non ex condimentum, ac ullamcorper sapien dictum. Nam consequat neque quis sapien viverra convallis. In non tempus lorem. </p>
-                        <button className=" text-white btn btn-outline-info btn-lg action-button" type="button">Read More</button>
+                        <p className = 'font-weight-light' style = {{display: 'block'}}>There’s nothing cutout about ‘Holo Food’ . Not our pizzas. Not our kin and our sandwiches. We have in excess of 16,000 eateries and 350,000 colleagues in excess of 100 nations. With 55 years of experience, We make food we’re pleased to serve and convey it fast, with a grin.</p>
+                        <Link to = '/about' className=" text-white btn btn-outline-info btn-lg action-button" type="button">Read More</Link>
                     </motion.div>
                     <div className="col-lg-5 col-lg-offset-0 col-md-5 col-md-offset-1 d-none d-lg-block d-md-block phone-holder ml-5">
                         <motion.div initial = {{x: '100vw'}} animate = {{x: 0}} transition= {{duration: 6}} className="iphone-mockup">
