@@ -43,7 +43,7 @@ We have in excess of 16,000 eateries and 350,000 colleagues in excess of 100 nat
 At ‘Holo Food’ , we are not simply baking  pizza but involved in other fast food like sandwiches , burgers and cookies. We make individuals happy and satisfy their hunger.’Company Name’ was based on the conviction that pizza night ought to be exceptional, and we convey that conviction into all that we do. With over 55 years of experience under our belts, we see how to best serve our clients through time tested administration standards: We make food we’re pleased to serve and convey it fast, with a grin.</p>
             <h4 className = 'font-weight-bold pt-4 pt-4'>Our Mission</h4>
              <p className = 'pt-2 text-justify'>From the very first moment, the friends could look at their clients without flinching and guarantee them the best food around the local area — in light of the fact that they knew the ranchers who developed the fixings, and they realized those agriculturists thought about quality.
-From that point forward, our agriculturists have developed directly close by us, and the fixings we use are as yet our most noteworthy need. Nobody cherishes food more than ‘Organization Name’ . That is the reason food is in our name — and dependably will be.</p>
+From that point forward, our agriculturists have developed directly close by us, and the fixings we use are as yet our most noteworthy need. Nobody cherishes food more than ‘Holo Food’ . That is the reason food is in our name — and dependably will be.</p>
             </div>
 
          </>
