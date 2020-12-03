@@ -3,7 +3,6 @@ const Product = require('./productModel');
 const Category = require('./categoryModel');
 const Deal = require('./dealsModel');
 const { authenticatorJWT } = require('./authenticator');
-const { default: isEmpty } = require('validator/lib/isempty');
 const router = express.Router();
 
 
@@ -171,7 +170,6 @@ router.delete('/deals/:id', authenticatorJWT,  async (req, res) => {
 
 router.put('/deals/:id', authenticatorJWT ,   async (req, res) => {
     const productId = req.params.id;
-    console.log(req.body.pic);
     const product = await Deal.findById( productId);
     if(product) {
         product.name = req.body.name,
