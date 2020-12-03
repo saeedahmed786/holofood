@@ -6,7 +6,6 @@ const {signinRequestValidation} = require('./validation');
 const  {registerValidation} = require('./validation');
 const  {isRequestValidated} = require('./validation');
 const {jwtSecret} = require('../config/keys');
-const {jwtExpire} = require('../config/keys');
 const {api_key} = require('../config/keys');
 const {DOMAIN} = require('../config/keys');
 const router = express.Router();
