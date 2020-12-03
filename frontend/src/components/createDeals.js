@@ -2,11 +2,12 @@ import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import isEmpty from 'validator/lib/isEmpty';
-import { showErrormsg, showLoadingMsg } from './messages';
+import { showErrormsg, showLoadingMsg, showSuccessmsg } from './messages';
 
  const CreateDeals = () => {
     const [deals, setDeals] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
+    const [successMsg, setSuccessMsg] = useState('');
     const [image, setImage] = useState('');
     const [token, setToken] = useState('');
     const [loadings, setLoadings] = useState('');
@@ -45,7 +46,9 @@ import { showErrormsg, showLoadingMsg } from './messages';
         isEmpty(description) || 
         isEmpty(countInStock)) {
             setErrorMsg('All fields are required');
-        } else {
+        }  
+        
+        else {
             let formData = new FormData();
             formData.append("upload_preset", "foodie");
             formData.append('file', file);
@@ -63,13 +66,14 @@ import { showErrormsg, showLoadingMsg } from './messages';
          
 
             createDeal().then( response => {
+                setLoadings(false);                
+                  setSuccessMsg(
+                   response.data.successMessage
+                      );
+                      window.location.reload();
+            }).catch(error => {
                 setLoadings(false);
-                window.location.reload();
-                
-                //   setSuccessMsg(
-                //    response.data.successMessage
-                //       );
-                //       window.location.reload();
+                setErrorMsg(error.response.data.err);
             })
         }
        
@@ -86,7 +90,9 @@ import { showErrormsg, showLoadingMsg } from './messages';
         setProductData({
             ...productData,
             [e.target.name] : e.target.value
-        })
+        });
+        setErrorMsg('');
+        setSuccessMsg('');
     }
 
      /********************************************* Create Deals ***********************************************
@@ -179,8 +185,9 @@ import { showErrormsg, showLoadingMsg } from './messages';
                     <i className = 'fas fa-times'></i>
                 </button>
                 </div>
-                <div className = 'text-center'>
+                <div className = ' mt-2 text-center mx-5'>
                 {loadings && showLoadingMsg(loadings)}
+                { successMsg && showSuccessmsg(successMsg)}
                 {errorMsg && showErrormsg(errorMsg)}
                 </div>
                  <div className = 'modal-body text-center mt-3'> 

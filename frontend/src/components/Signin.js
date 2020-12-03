@@ -89,13 +89,13 @@ export default function Signin(props) {
                 });
                 props.history.push('/');
        
-            }).catch(err => {
-                // setFormData({
-                //     ...formData,
-                //     errormsg: err.response.data.err,
-                //     loading: false
-                // });
-                console.log(err);
+            }).catch(error => {
+                setFormData({
+                    ...formData,
+                    errormsg: error.response.data.error,
+                    loading: false
+                });
+                console.log(error);
                     });
             
 

@@ -3,6 +3,7 @@ const Product = require('./productModel');
 const Category = require('./categoryModel');
 const Deal = require('./dealsModel');
 const { authenticatorJWT } = require('./authenticator');
+const { default: isEmpty } = require('validator/lib/isempty');
 const router = express.Router();
 
 
@@ -234,19 +235,20 @@ router.post('/' , authenticatorJWT ,async (req, res) => {
         category: req.body.productCategory
        
     });
+
+        
     const newProduct = await product.save();
     if(newProduct) {
         return res.status(201).send({successMessage: 'New product is created'});
     }
 
-    return res.status(500).send({err: 'error in creating product'});
+    return res.status(500).send({err: 'invalid entry!'});
 });
 
 
 
 router.put('/:id', authenticatorJWT ,   async (req, res) => {
     const productId = req.params.id;
-    console.log(req.body.pic);
     const product = await Product.findById( productId);
     if(product) {
         product.name= req.body.name;

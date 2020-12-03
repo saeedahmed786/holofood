@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {  listProducts, deleteProduct, deleteCategory } from '../Redux/store';
 import axios from 'axios';
 import isEmpty from 'validator/lib/isEmpty';
+import isNumeric from 'validator/lib/isNumeric';
 import { showErrormsg, showLoadingMsg, showSuccessmsg } from './messages';
 import { Link } from 'react-router-dom';
 import CreateDeals from './createDeals';
@@ -78,7 +79,7 @@ import Axios from 'axios';
                   isEmpty(countInStock) || 
                   isEmpty(productCategory)) {
              setErrorMsg('All fields are required');
-         } 
+         }
          else {
              
              let formData = new FormData();
@@ -106,7 +107,7 @@ import Axios from 'axios';
                        window.location.reload();
              }).catch(err => {
                  setErrorMsg(
-                      err.response.data.error
+                      err.response.data.err
                  );
              });
          }
@@ -131,7 +132,9 @@ import Axios from 'axios';
            setProductData({
                ...productData,
                [e.target.name] : e.target.value
-           })
+           });
+           setErrorMsg('');
+           setSuccessMsg('');
        }
 
 
@@ -300,8 +303,10 @@ import Axios from 'axios';
                     <i className = 'fas fa-times'></i>
                 </button>
                 </div>
+                <div className = ' pt-2 text-center mx-5'>
                 {errorMsg && showErrormsg(errorMsg)}
                 {successMsg && showSuccessmsg(successMsg)}
+                </div>
                  <div className = 'modal-body text-center mt-3'> 
                     <div className="form-group">
                     <label for="image">Image</label><br/>
@@ -322,7 +327,7 @@ import Axios from 'axios';
                     <input type = 'text' id = 'price'  name ='price' value ={price} onChange = {handleProductChange}></input><br/><br/>
                 </div>
                 <div>
-                    <label htmlFor = 'countInStock' className = 'font-weight-bolder'>countInStock:</label> <br/>
+                    <label htmlFor = 'countInStock' className = 'font-weight-bolder'>Count In Stock:</label> <br/>
                     <input type = 'text' id = 'countInStock' value ={countInStock}  name ='countInStock' onChange = {handleProductChange}></input><br/><br/>
                 </div>
 
