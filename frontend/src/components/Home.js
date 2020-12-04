@@ -7,6 +7,7 @@ import '../index.css';
 import iphone from '../images/iphone.jpg';
 import Deals from './getDeals';
 import { motion } from "framer-motion";
+import ScrollToTop from 'react-scroll-up';
 
  const Slideshow = () => (
     <motion.div
@@ -51,8 +52,8 @@ import { motion } from "framer-motion";
                 <div className="row">
                             
                     <motion.div initial = {{opacity: 0}} animate = {{opacity: 1}} transition= {{duration: 6}} className="col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-0" style = {{paddingTop: '100px'}}>
-                   
-                        <h1 className = '  mb-3 mt-5' style = {{fontSize: '30px', display: 'block'}}>The revolution is here.</h1>
+                     
+                        <h1 id = 'top' className = '  mb-3 mt-5' style = {{fontSize: '30px', display: 'block'}}>The revolution is here.</h1>
                         <p className = 'font-weight-light' style = {{display: 'block'}}>There’s nothing cutout about ‘Holo Food’ . Not our pizzas. Not our kin and our sandwiches. We have in excess of 16,000 eateries and 350,000 colleagues in excess of 100 nations. With 55 years of experience, We make food we’re pleased to serve and convey it fast, with a grin.</p>
                         <Link to = '/about' className=" text-white btn btn-outline-info btn-lg action-button" type="button">Read More</Link>
                     </motion.div>
@@ -77,6 +78,11 @@ import { motion } from "framer-motion";
     <Deals/>
     </div>
     </div>
+     
+    <ScrollToTop showUnder={160}>
+  <span><i className="fas fa-arrow-circle-up fa-2x text-info"></i></span>
+</ScrollToTop>
+
 <div>
 <div className = 'container pt-5' style = {{backgroundColor: 'whitesmoke'}}>
   <div className = 'row  ml-2'>

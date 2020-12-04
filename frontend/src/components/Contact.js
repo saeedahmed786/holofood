@@ -132,14 +132,14 @@ const handleSubmit = (e) => {
         <div className="col-md-3 text-center">
             <ul className="list-unstyled mb-0">
                 <li><i className="fas fa-map-marker-alt fa-2x"></i>
-                    <p>Kot Sabzal, Sadiqabad, Punjab, Pakistan</p>
+                    <p>Ch Muhammad Khan Road, Saddar, Rawalpindi, Pakistan</p>
                 </li>
 
                 <li> <a  style = {{textDecoration: 'none', color: 'black'}} href = 'tel: 03000188367'> <i className="fas fa-phone mt-4 fa-2x"></i> Call Now</a><br/>
                     <p>+ 92 300 0188 367</p>
                 </li>
 
-                <li> <a href="mailto:someone@example.com" style = {{textDecoration: 'none', color: 'black'}}><i className="fas fa-envelope mt-4 fa-2x"></i> Email Us</a>
+                <li> <a href="mailto:saeedchachar987654@gmail.com" style = {{textDecoration: 'none', color: 'black'}}><i className="fas fa-envelope mt-4 fa-2x"></i> Email Us</a>
                     <p>saeedchachar987654@gmail.com</p>
                 </li>
             </ul>
