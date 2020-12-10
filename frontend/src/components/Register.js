@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'validator/lib/isEmpty';
 import equals from 'validator/lib/equals';
@@ -32,7 +32,12 @@ export default function Register() {
         
     } = formData;
    
-  
+   useEffect(() => {
+    window.scrollTo(0, 0);
+       return () => {
+           
+       }
+   }, [])
    
 
     const handleChange = (e) => {

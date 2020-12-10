@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import '../index.css';
 import { useDispatch } from 'react-redux';
 import { savePayment } from '../Redux/store';
@@ -10,6 +10,13 @@ import { motion } from 'framer-motion';
    
     
      const dispatch = useDispatch();
+
+     useEffect(() => {
+      window.scrollTo(0, 0);
+       return () => {
+         
+       }
+     }, [])
    
 
 

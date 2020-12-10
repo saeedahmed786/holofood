@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import isEmpty from 'validator/lib/isEmpty';
 import { saveShipping } from '../Redux/store';
@@ -31,6 +31,13 @@ export default function Shipping(props) {
         props.history.push('/payment')
     }
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        return () => {
+            
+        }
+    }, [])
 
 
     const framervariant =  {

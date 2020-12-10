@@ -16,6 +16,7 @@ import { Link } from 'react-router-dom';
          getDeal(dealId)
          if(dealId) {
         dispatch(dealAddToCart(dealId, qty));
+        window.scrollTo(0, 0);
          }
 
        return () => {

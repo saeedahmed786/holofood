@@ -41,6 +41,7 @@ export default function EditDeal(props) {
     useEffect(() => {
         getProduct();
         getToken();
+        window.scrollTo(0, 0);
     
         return () => {
            

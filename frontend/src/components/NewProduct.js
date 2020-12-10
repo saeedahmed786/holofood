@@ -54,6 +54,7 @@ import Axios from 'axios';
          loadCategories();
          getToken();
          
+         window.scrollTo(0, 0);
 
         
         

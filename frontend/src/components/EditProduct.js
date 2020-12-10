@@ -38,6 +38,7 @@ export default function EditProduct(props) {
         loadCategories();
         getProduct();
         getToken();
+        window.scrollTo(0, 0);
     
         return () => {
            

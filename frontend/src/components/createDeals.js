@@ -28,6 +28,7 @@ import { showErrormsg, showLoadingMsg, showSuccessmsg } from './messages';
     useEffect(() => {
         getDeals();
         getToken();
+        window.scrollTo(0, 0);
         return () => {
             
         }

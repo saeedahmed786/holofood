@@ -26,6 +26,7 @@ import ScrollToTop from 'react-scroll-up';
 
     useEffect(() => {
         dispatch(listProducts());
+        window.scrollTo(0, 0);
         return () => {
             
         }

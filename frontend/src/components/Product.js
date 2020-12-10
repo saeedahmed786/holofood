@@ -18,6 +18,8 @@ import { Link } from 'react-router-dom';
        if(productId) {
         dispatch(AddToCart(productId, qty));
         dispatch(dealAddToCart(productId, qty));
+
+        window.scrollTo(0, 0);
         
     }
        return () => {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import slider3 from '../images/slider1.jpg';
@@ -8,6 +8,13 @@ import slider4 from '../images/slider4.jpg';
 
 
 const About = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        return () => {
+            
+        }
+    }, [])
         return (
             <>
             <Carousel background = ' white'>

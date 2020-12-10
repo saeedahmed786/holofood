@@ -5,7 +5,6 @@ import { removeFromCart } from '../Redux/store';
 import { isAuthenticated } from './auth';
 import { motion } from 'framer-motion';
 import { ToastContainer, toast } from 'react-toastify';
-
 toast.configure();
 export default function Cart(props) {
     const notify = () => toast.info("Product removed from cart successfully");
@@ -16,12 +15,8 @@ export default function Cart(props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // if(productId) {
-        //     dispatch(AddToCart(productId, qty));
-        //     dispatch(dealAddToCart(productId, qty));
-            
-        // }
-        
+        window.scrollTo(0, 0);
+       
         return () => {
             
         }
@@ -31,6 +26,7 @@ export default function Cart(props) {
         notify();
         window.location.reload();
 
+       
     }
     const checkOutHandler = () => {
         if(isAuthenticated()) {

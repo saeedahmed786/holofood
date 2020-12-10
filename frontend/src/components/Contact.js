@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'validator/lib/isEmpty';
 import { showErrormsg, showSuccessmsg } from './messages';
@@ -58,6 +58,13 @@ const handleSubmit = (e) => {
     
 
 }
+
+useEffect(() => {
+    window.scrollTo(0, 0);
+    return () => {
+        
+    }
+}, [])
 
 
 
